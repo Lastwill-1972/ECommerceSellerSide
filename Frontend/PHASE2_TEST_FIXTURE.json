@@ -1,0 +1,64 @@
+{
+  "db": "test_frontend_phase2_92761e61",
+  "backend_pid": 13000,
+  "url": "http://127.0.0.1:8012",
+  "usernames": {
+    "platform": "frontend2_platform_8ed494",
+    "admin_a": "frontend2_admin_a_2b0577",
+    "admin_b": "frontend2_admin_b_cb6027",
+    "owner_a": "frontend2_owner_a_4e6101",
+    "owner_a2": "frontend2_owner_a2_aee334",
+    "owner_a3": "frontend2_owner_a3_725ecf",
+    "owner_b": "frontend2_owner_b_1fa834",
+    "owner_b2": "frontend2_owner_b2_1d927a",
+    "pending_a": "frontend2_pending_a_e99177",
+    "reject_a": "frontend2_reject_a_ef2341",
+    "pending_b": "frontend2_pending_b_4295cb",
+    "plain": "frontend2_plain_24c478",
+    "employee": "frontend2_employee_17e7f1"
+  },
+  "user_ids": {
+    "platform": "9007199254740993",
+    "admin_a": "9007199254740994",
+    "admin_b": "9007199254740995",
+    "owner_a": "9007199254740996",
+    "owner_a2": "9007199254740997",
+    "owner_a3": "9007199254740998",
+    "owner_b": "9007199254740999",
+    "owner_b2": "9007199254741000",
+    "pending_a": "9007199254741001",
+    "reject_a": "9007199254741002",
+    "pending_b": "9007199254741003",
+    "plain": "9007199254741004",
+    "employee": "9007199254741005"
+  },
+  "merchants": {
+    "admin_a": "9007199254741001",
+    "admin_b": "9007199254741002"
+  },
+  "shops": {
+    "owner_a": "9007199254742001",
+    "owner_a2": "9007199254742002",
+    "owner_a3": "9007199254742003",
+    "owner_b": "9007199254742004",
+    "owner_b2": "9007199254742005"
+  },
+  "shopapps": {
+    "pending_a": "9007199254743006",
+    "reject_a": "9007199254743007",
+    "pending_b": "9007199254743008"
+  },
+  "warehouseapps": {
+    "owner_a": "9007199254744001",
+    "owner_a2": "9007199254744002",
+    "owner_a3": "9007199254744003",
+    "owner_b": "9007199254744004",
+    "owner_b2": "9007199254744005"
+  },
+  "orders": {
+    "admin_a": "9007199254745001",
+    "completed_a": "9007199254745002",
+    "admin_b": "9007199254745003"
+  },
+  "backend_scope_and_readonly_checks": "passed"
+}
