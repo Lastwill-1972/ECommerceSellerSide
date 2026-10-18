@@ -1,0 +1,28 @@
+{
+  "db": "test_frontend_phase4_95969cd7",
+  "status": "cleaned",
+  "api_url": "http://127.0.0.1:8016/api/v1",
+  "frontend_url": "http://127.0.0.1:6176",
+  "mysql_version": "9.7.2",
+  "head": "20261017_phase12",
+  "business_tables": 20,
+  "user_ids": {
+    "admin_a": "9007199254760002",
+    "admin_b": "9007199254760003",
+    "owner_a": "9007199254760004",
+    "owner_b": "9007199254760005",
+    "employee": "9007199254760006",
+    "target": "9007199254760007",
+    "plain": "9007199254760008"
+  },
+  "merchants": {
+    "a": "1",
+    "b": "2"
+  },
+  "shops": {
+    "a": "1",
+    "b": "2"
+  },
+  "sku_id": "1",
+  "note": "Disposable database and all accounts deleted; local services stopped separately. No development data used."
+}

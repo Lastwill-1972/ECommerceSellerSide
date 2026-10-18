@@ -15,7 +15,12 @@ async function load(next = offset.value) {
 }
 onMounted(() => { void load(0) })
 </script>
-<template><div class="merchant-page"><div class="welcome-row"><div><div class="page-eyebrow">SHOPS</div><h1>店铺列表</h1><p>只显示当前商家名下由服务端返回的店铺。</p></div><el-button class="refresh-button" :loading="loading" @click="load()">刷新</el-button></div>
-  <section class="merchant-card"><div v-if="loading" class="list-state">正在读取店铺…</div><div v-else-if="error" class="list-state state-error" role="alert">{{ error }} <el-button link type="primary" @click="load()">重试</el-button></div><template v-else-if="page?.items.length"><div class="table-wrap"><table class="merchant-table"><thead><tr><th>店铺</th><th>店铺编号</th><th>店主编号</th><th>创建时间</th></tr></thead><tbody><tr v-for="shop in page.items" :key="shop.id"><td>{{ shop.name }}</td><td>{{ shop.id }}</td><td>{{ shop.owner_user_id }}</td><td>{{ formatNaiveDateTime(shop.created_at) }}</td></tr></tbody></table></div></template><div v-else class="list-state">{{ page ? '当前商家还没有店铺。' : '尚无数据。' }}</div>
-  <div v-if="page && page.total" class="pager"><span>共 {{ page.total }} 家 · 第 {{ Math.floor(page.offset / page.limit) + 1 }} 页</span><div><el-button size="small" :disabled="loading || page.offset === 0" @click="load(Math.max(0, page.offset - page.limit))">上一页</el-button><el-button size="small" :disabled="loading || page.offset + page.limit >= page.total" @click="load(page.offset + page.limit)">下一页</el-button></div></div></section>
-</div></template>
+<template>
+  <div class="merchant-page">
+    <div class="welcome-row"><div><div class="page-eyebrow">SHOPS</div><h1>店铺列表</h1><p>只显示当前商家名下由服务端返回的店铺。</p></div><el-button class="refresh-button" :loading="loading" @click="load()">刷新</el-button></div>
+    <section class="merchant-card">
+      <div v-if="loading" class="list-state">正在读取店铺…</div><div v-else-if="error" class="list-state state-error" role="alert">{{ error }} <el-button link type="primary" @click="load()">重试</el-button></div><template v-else-if="page?.items.length"><div class="table-wrap"><table class="merchant-table"><thead><tr><th>店铺</th><th>店铺编号</th><th>店主编号</th><th>创建时间</th></tr></thead><tbody><tr v-for="shop in page.items" :key="shop.id"><td>{{ shop.name }}</td><td>{{ shop.id }}</td><td>{{ shop.owner_user_id }}</td><td>{{ formatNaiveDateTime(shop.created_at) }}</td></tr></tbody></table></div></template><div v-else class="list-state">{{ page ? '当前商家还没有店铺。' : '尚无数据。' }}</div>
+      <div v-if="page && page.total" class="pager"><span>共 {{ page.total }} 家 · 第 {{ Math.floor(page.offset / page.limit) + 1 }} 页</span><div><el-button size="small" :disabled="loading || page.offset === 0" @click="load(Math.max(0, page.offset - page.limit))">上一页</el-button><el-button size="small" :disabled="loading || page.offset + page.limit >= page.total" @click="load(page.offset + page.limit)">下一页</el-button></div></div>
+    </section>
+  </div>
+</template>

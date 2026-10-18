@@ -1,0 +1,558 @@
+{
+  "proxy_requests": [
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "4111e6abc1429def32c0cf464faa184164d784881c09b780fc94469dbe269d5a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus?limit=10&offset=0&status=ON_SALE",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus/2",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders",
+      "backend_status": 201,
+      "returned_status": 201,
+      "key": "ff7cf90d-4fde-4b7f-abc9-a0a2a96ba732",
+      "payload_sha256": "fa6683e748b7b62ad25f22abc121872d8cdd8e068c37fa976cbe73604d2716b7"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/warehouse",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/stocks?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus?limit=10&offset=0&status=ON_SALE",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/5",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "4111e6abc1429def32c0cf464faa184164d784881c09b780fc94469dbe269d5a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/5",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders/5/complete",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/5",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/warehouse",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/stocks?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "c41036843ced6fe1295edfaa3213c9a0e59f5dbd4c8bd1c7cc95f9485cc33f23"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus?limit=10&offset=0&status=ON_SALE",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus/2",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders",
+      "backend_status": 201,
+      "returned_status": 503,
+      "key": "3cad0c57-5b5e-4416-9e7c-ef7122f453da",
+      "payload_sha256": "fa6683e748b7b62ad25f22abc121872d8cdd8e068c37fa976cbe73604d2716b7"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders",
+      "backend_status": 201,
+      "returned_status": 201,
+      "key": "3cad0c57-5b5e-4416-9e7c-ef7122f453da",
+      "payload_sha256": "fa6683e748b7b62ad25f22abc121872d8cdd8e068c37fa976cbe73604d2716b7"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/warehouse",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/stocks?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "c41036843ced6fe1295edfaa3213c9a0e59f5dbd4c8bd1c7cc95f9485cc33f23"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/4",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders/4/cancel",
+      "backend_status": 200,
+      "returned_status": 503,
+      "key": null,
+      "payload_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/4",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/warehouse",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/stocks?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "c41036843ced6fe1295edfaa3213c9a0e59f5dbd4c8bd1c7cc95f9485cc33f23"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/7",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders/7/complete",
+      "backend_status": 200,
+      "returned_status": 503,
+      "key": null,
+      "payload_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/7",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/warehouse",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/stocks?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "c41036843ced6fe1295edfaa3213c9a0e59f5dbd4c8bd1c7cc95f9485cc33f23"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/7",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/7",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/categories?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus/2",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/stocks?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/categories?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/warehouse",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "c41036843ced6fe1295edfaa3213c9a0e59f5dbd4c8bd1c7cc95f9485cc33f23"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/warehouse",
+      "backend_status": 403,
+      "returned_status": 403,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/stocks?limit=20&offset=0",
+      "backend_status": 403,
+      "returned_status": 403,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "cleanup": "cleaned",
+  "audit_directory": "C:\\Users\\lastwill\\.codex\\mcp\\deepseek\\runs\\phase5-controller-a18d3ff0"
+}

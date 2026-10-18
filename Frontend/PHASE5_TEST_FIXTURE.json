@@ -1,0 +1,33 @@
+{
+  "status": "cleaned",
+  "audit_directory": "C:\\Users\\lastwill\\.codex\\mcp\\deepseek\\runs\\phase5-controller-a18d3ff0",
+  "user_ids": {
+    "admin_a": "9007199254770002",
+    "admin_b": "9007199254770003",
+    "owner_a1": "9007199254770004",
+    "owner_a2": "9007199254770005",
+    "owner_b": "9007199254770006",
+    "employee": "9007199254770007",
+    "plain": "9007199254770008"
+  },
+  "merchants": {
+    "a": "3",
+    "b": "4"
+  },
+  "shops": {
+    "a1": "3",
+    "a2": "4",
+    "b": "5"
+  },
+  "spu_id": "2",
+  "sku_id": "2",
+  "sku2_id": "3",
+  "order_id": "4",
+  "mysql_version": "9.7.2",
+  "head": "20261017_phase12",
+  "business_tables": 20,
+  "db": "test_deepseek_25e00e9692a6",
+  "temporary_account": "ds_3f9f1a1a71e8",
+  "api_url": "http://127.0.0.1:8019/api/v1",
+  "frontend_url": "http://127.0.0.1:6179"
+}

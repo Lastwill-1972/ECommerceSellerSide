@@ -1,0 +1,62 @@
+{
+  "frontend_checks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "vitest": {
+      "files": 26,
+      "passed": 145,
+      "failed": 0,
+      "skipped": 0
+    },
+    "build": "passed"
+  },
+  "backend_baseline_files_unchanged": 116,
+  "openapi_unchanged": true,
+  "replay_orders": [
+    {
+      "id": 6,
+      "status": "CANCELLED"
+    }
+  ],
+  "replay_movements": [
+    {
+      "operation_type": "ORDER_DEDUCT",
+      "count": 1
+    },
+    {
+      "operation_type": "ORDER_RESTORE",
+      "count": 1
+    }
+  ],
+  "initial_js_kb": 427.73,
+  "browser_vue_warnings_errors": 0,
+  "http_acceptance_groups_passed": 13,
+  "cleanup": {
+    "database_removed": true,
+    "temporary_account_removed": true,
+    "ports_closed": [
+      8018,
+      8019,
+      6179
+    ],
+    "browser_closed": true
+  },
+  "proxy_replay": [
+    {
+      "method": "POST",
+      "path": "/api/v1/orders",
+      "backend_status": 201,
+      "returned_status": 503,
+      "key": "3cad0c57-5b5e-4416-9e7c-ef7122f453da",
+      "payload_sha256": "fa6683e748b7b62ad25f22abc121872d8cdd8e068c37fa976cbe73604d2716b7"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders",
+      "backend_status": 201,
+      "returned_status": 201,
+      "key": "3cad0c57-5b5e-4416-9e7c-ef7122f453da",
+      "payload_sha256": "fa6683e748b7b62ad25f22abc121872d8cdd8e068c37fa976cbe73604d2716b7"
+    }
+  ]
+}

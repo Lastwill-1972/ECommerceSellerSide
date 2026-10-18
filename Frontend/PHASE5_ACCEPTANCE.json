@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "database": "test_deepseek_25e00e9692a6",
+  "checks": [
+    {
+      "check": "real MySQL 9.7.2 isolated schema, 20 tables, migration head verified",
+      "result": "passed"
+    },
+    {
+      "check": "two authorized shops share exactly the same warehouse and SKU stock",
+      "result": "passed"
+    },
+    {
+      "check": "browser owner and employee completion and cancellation persisted in MySQL",
+      "result": "passed"
+    },
+    {
+      "check": "original key replays cancelled order without rededuction; changed payload/actor rejected",
+      "result": "passed"
+    },
+    {
+      "check": "multi-SKU shortage rolls back whole order and all stock deductions",
+      "result": "passed"
+    },
+    {
+      "check": "real strict integer schema rejects zero quantity and JSON string SKU id",
+      "result": "passed"
+    },
+    {
+      "check": "cross-shop/cross-merchant details rejected; merchant read-only and NONE/platform boundaries",
+      "result": "passed"
+    },
+    {
+      "check": "two real shops compete for one unit: one order succeeds, other conflicts, no oversell",
+      "result": "passed"
+    },
+    {
+      "check": "pending cancellation restores once; repeated cancellation and completed cancellation conflict",
+      "result": "passed"
+    },
+    {
+      "check": "repricing and approved offshelf preserve historical snapshots; new off-sale orders rejected",
+      "result": "passed"
+    },
+    {
+      "check": "removed employee old JWT immediately loses order access",
+      "result": "passed"
+    },
+    {
+      "check": "removed employee can reapply and recover only the new valid relationship",
+      "result": "passed"
+    },
+    {
+      "check": "owner handoff revokes old JWT business access and preserves shop warehouse grant",
+      "result": "passed"
+    }
+  ],
+  "concurrency_statuses": [
+    201,
+    409
+  ],
+  "replay_key": "3cad0c57-5b5e-4416-9e7c-ef7122f453da"
+}

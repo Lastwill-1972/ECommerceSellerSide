@@ -8,6 +8,18 @@ import NotFoundPage from '@/modules/system/pages/NotFoundPage.vue'
 import DashboardPage from '@/modules/dashboard/pages/DashboardPage.vue'
 import { ApiError } from '@/shared/http/errors'
 
+let expiredSessionPending = false
+if (typeof window !== 'undefined') {
+  window.addEventListener('auth:expired', () => { expiredSessionPending = true })
+}
+
+const EmployeeHomePage = () => import('@/modules/orders/EmployeeHomePage.vue')
+const OrderListPage = () => import('@/modules/orders/OrderListPage.vue')
+const OrderCreatePage = () => import('@/modules/orders/OrderCreatePage.vue')
+const OrderDetailPage = () => import('@/modules/orders/OrderDetailPage.vue')
+const RoleFrame = () => import('@/modules/workspace/RoleFrame.vue')
+const ShopReadPage = () => import('@/modules/workspace/pages/ShopReadPage.vue')
+
 export const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -17,6 +29,30 @@ export const router = createRouter({
       path: '/', component: AppShell, meta: { requiresAuth: true },
       children: [
         { path: '', name: 'dashboard', component: DashboardPage, meta: { requiresAuth: true, title: '工作台' } },
+        { path: 'applications', component: RoleFrame, meta: { requiresAuth: true, allowedRoles: ['NONE'] }, children: [
+          { path: '', name: 'identity-applications', component: () => import('@/modules/workspace/pages/ApplicationsPage.vue'), meta: { requiresAuth: true, allowedRoles: ['NONE'], title: '身份申请中心' } },
+        ] },
+        { path: 'shop', component: RoleFrame, meta: { requiresAuth: true, allowedRoles: ['SHOP_OWNER'] }, children: [
+          { path: '', name: 'shop-home', component: ShopReadPage, meta: { title: '店铺概览' } },
+          { path: 'employees', name: 'shop-employees', component: () => import('@/modules/workspace/pages/ShopPeoplePage.vue'), meta: { title: '本店员工' } },
+          { path: 'applications', name: 'shop-applications', component: () => import('@/modules/workspace/pages/ShopPeoplePage.vue'), meta: { title: '员工入职审批' } },
+          { path: 'roles', name: 'shop-roles', component: () => import('@/modules/workspace/pages/ShopPeoplePage.vue'), meta: { title: '店铺岗位管理' } },
+          { path: 'warehouse', name: 'shop-warehouse', component: ShopReadPage, meta: { title: '仓库授权申请' } },
+          { path: 'catalog', name: 'shop-catalog', component: ShopReadPage, meta: { title: '商家商品只读' } },
+          { path: 'inventory', name: 'shop-inventory', component: ShopReadPage, meta: { title: '共享库存只读' } },
+          { path: 'orders', name: 'shop-orders', component: OrderListPage, meta: { title: '订单列表' } },
+          { path: 'orders/create', name: 'shop-order-create', component: OrderCreatePage, meta: { title: '创建订单' } },
+          { path: 'orders/:id', name: 'shop-order-detail', component: OrderDetailPage, meta: { title: '订单详情' } },
+          { path: 'owner-transfer', name: 'shop-owner-transfer', component: () => import('@/modules/workspace/pages/OwnerTransferPage.vue'), meta: { title: '提议负责人交接' } },
+        ] },
+        { path: 'employee', component: RoleFrame, meta: { requiresAuth: true, allowedRoles: ['SHOP_EMPLOYEE'] }, children: [
+          { path: '', name: 'employee-home', component: EmployeeHomePage, meta: { title: '员工概览' } },
+          { path: 'catalog', name: 'employee-catalog', component: ShopReadPage, meta: { title: '商品只读' } },
+          { path: 'inventory', name: 'employee-inventory', component: ShopReadPage, meta: { title: '库存只读' } },
+          { path: 'orders', name: 'employee-orders', component: OrderListPage, meta: { title: '订单列表' } },
+          { path: 'orders/create', name: 'employee-order-create', component: OrderCreatePage, meta: { title: '创建订单' } },
+          { path: 'orders/:id', name: 'employee-order-detail', component: OrderDetailPage, meta: { title: '订单详情' } },
+        ] },
         {
           path: 'merchant', component: () => import('@/modules/merchant/pages/MerchantFramePage.vue'),
           meta: { requiresAuth: true, merchantOnly: true },
@@ -27,6 +63,9 @@ export const router = createRouter({
             { path: 'applications', name: 'merchant-applications', component: () => import('@/modules/merchant/pages/MerchantApplicationsPage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '审批中心' } },
             { path: 'orders', name: 'merchant-orders', component: () => import('@/modules/merchant/pages/MerchantOrdersPage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '订单列表' } },
             { path: 'orders/:id', name: 'merchant-order-detail', component: () => import('@/modules/merchant/pages/MerchantOrderDetailPage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '订单详情' } },
+            { path: 'catalog', name: 'merchant-catalog', component: () => import('@/modules/merchant/pages/MerchantCatalogPage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '商品管理' } },
+            { path: 'inventory', name: 'merchant-inventory', component: () => import('@/modules/merchant/pages/MerchantInventoryPage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '库存管理' } },
+            { path: 'owner-transfer', name: 'merchant-owner-transfer', component: () => import('@/modules/workspace/pages/OwnerTransferPage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '负责人交接管理' } },
           ],
         },
       ],
@@ -37,19 +76,48 @@ export const router = createRouter({
   scrollBehavior: () => ({ top: 0 }),
 })
 
+/** Roles that operate inside a concrete merchant/shop scope and therefore need real non-empty ids. */
+const SHOP_SCOPED_ROLES = ['SHOP_OWNER', 'SHOP_EMPLOYEE']
+
+function hasShopScope(user: { role?: string | null; merchant_id?: number | string | null; shop_id?: number | string | null } | null): boolean {
+  if (!user) return false
+  return user.role === 'SHOP_OWNER' || user.role === 'SHOP_EMPLOYEE'
+    ? (user.merchant_id !== null && user.merchant_id !== undefined && user.merchant_id !== '' &&
+        user.shop_id !== null && user.shop_id !== undefined && user.shop_id !== '')
+    : false
+}
+
 router.beforeEach(async (to) => {
   const auth = useAuthStore()
   if (to.meta.requiresAuth) {
-    if (!auth.token) return { name: 'login', query: { redirect: safeInternalRedirect(to.fullPath) } }
+    if (!auth.token) {
+      const reason = expiredSessionPending ? 'expired' : undefined
+      expiredSessionPending = false
+      return { name: 'login', query: { ...(reason ? { reason } : {}), redirect: safeInternalRedirect(to.fullPath) } }
+    }
     try {
       await auth.loadCurrentUser(true)
     } catch (error) {
       if (error instanceof ApiError && error.status === 403) return { name: 'forbidden' }
-      return { name: 'login', query: { reason: 'unavailable', redirect: safeInternalRedirect(to.fullPath) } }
+      const reason = error instanceof ApiError && error.status === 401 ? 'expired' : 'unavailable'
+      expiredSessionPending = false
+      return { name: 'login', query: { reason, redirect: safeInternalRedirect(to.fullPath) } }
     }
+    expiredSessionPending = false
     if (auth.identityState === 'conflict') return { name: 'forbidden' }
-    if (!auth.user) return { name: 'login', query: { redirect: safeInternalRedirect(to.fullPath) } }
+    if (!auth.user) {
+      const reason = !auth.token || expiredSessionPending ? 'expired' : 'unavailable'
+      expiredSessionPending = false
+      return { name: 'login', query: { reason, redirect: safeInternalRedirect(to.fullPath) } }
+    }
     if (to.matched.some((record) => record.meta.merchantOnly) && (auth.user.role !== 'MERCHANT_ADMIN' || auth.user.merchant_id === null)) return { name: 'forbidden' }
+    const allowed = to.meta.allowedRoles as string[] | undefined
+    if (allowed) {
+      if (!allowed.includes(auth.user.role)) return { name: 'forbidden' }
+      if (SHOP_SCOPED_ROLES.includes(auth.user.role) && !hasShopScope(auth.user)) return { name: 'forbidden' }
+    }
+    // Platform administrators never enter merchant/shop/employee business areas.
+    if (auth.user.role === 'PLATFORM_ADMIN' && to.matched.some((record) => Array.isArray(record.meta.allowedRoles) || record.meta.merchantOnly)) return { name: 'forbidden' }
   }
   if (to.meta.guestOnly && auth.token) {
     try {

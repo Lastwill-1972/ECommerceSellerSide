@@ -7,19 +7,39 @@ import { useRoute } from 'vue-router'
 const auth = useAuthStore()
 const router = useRouter()
 const route = useRoute()
+let intentionalSignOut = false
 const merchantLinks = [
   { name: 'merchant-home', label: '商家概览', icon: 'DataBoard' },
   { name: 'merchant-profile', label: '商家资料', icon: 'User' },
   { name: 'merchant-shops', label: '店铺列表', icon: 'Shop' },
   { name: 'merchant-applications', label: '审批中心', icon: 'Tickets' },
   { name: 'merchant-orders', label: '订单列表', icon: 'List' },
+  { name: 'merchant-catalog', label: '商品管理', icon: 'Goods' },
+  { name: 'merchant-inventory', label: '库存管理', icon: 'Box' },
+  { name: 'merchant-owner-transfer', label: '负责人交接', icon: 'SwitchButton' },
+] as const
+const shopLinks = [
+  { name: 'shop-home', label: '店铺概览' }, { name: 'shop-employees', label: '本店员工' },
+  { name: 'shop-applications', label: '员工入职审批' }, { name: 'shop-roles', label: '店铺岗位' },
+  { name: 'shop-warehouse', label: '仓库授权' }, { name: 'shop-catalog', label: '商家商品只读' },
+  { name: 'shop-inventory', label: '共享库存只读' }, { name: 'shop-orders', label: '订单列表' },
+  { name: 'shop-order-create', label: '创建订单' }, { name: 'shop-owner-transfer', label: '提议负责人交接' },
+] as const
+const employeeLinks = [
+  { name: 'employee-home', label: '员工概览' }, { name: 'employee-catalog', label: '商品只读' },
+  { name: 'employee-inventory', label: '库存只读' }, { name: 'employee-orders', label: '订单列表' },
+  { name: 'employee-order-create', label: '创建订单' },
 ] as const
 const pageTitle = computed(() => typeof route.meta.title === 'string' ? route.meta.title : '工作台')
-const inMerchant = computed(() => route.matched.some((record) => record.meta.merchantOnly))
+const inMerchant = computed(() => route.name !== 'dashboard')
 watch(() => [auth.token, auth.identityState] as const, ([token, state]) => {
   if (state === 'conflict') void router.replace({ name: 'forbidden' })
-  else if (!token && router.currentRoute.value.name !== 'login') {
-    void router.replace({ name: 'login', query: { reason: 'expired' } })
+  else if (!token) {
+    const wasIntentionalSignOut = intentionalSignOut
+    intentionalSignOut = false
+    if (!wasIntentionalSignOut && router.currentRoute.value.name !== 'login') {
+      void router.replace({ name: 'login', query: { reason: 'expired' } })
+    }
   }
 })
 const roleName = computed(() => ({
@@ -27,7 +47,15 @@ const roleName = computed(() => ({
   SHOP_EMPLOYEE: '店铺员工', NONE: '尚未分配业务身份',
 }[auth.user?.role ?? 'NONE']))
 
+function isActive(name: string): boolean {
+  if (route.name === name) return true
+  if (name === 'shop-orders') return route.name === 'shop-order-detail'
+  if (name === 'employee-orders') return route.name === 'employee-order-detail'
+  return false
+}
+
 function signOut() {
+  intentionalSignOut = true
   auth.signOut()
   void router.replace({ name: 'login' })
 }
@@ -49,6 +77,17 @@ function signOut() {
           <el-icon><component :is="item.icon" /></el-icon><span>{{ item.label }}</span><i></i>
         </RouterLink>
       </template>
+      <template v-if="auth.user?.role === 'SHOP_OWNER'">
+        <RouterLink v-for="item in shopLinks" :key="item.name" class="nav-link merchant-nav" :class="{ active: isActive(item.name) }" :to="{ name: item.name }">
+          <el-icon><Shop /></el-icon><span>{{ item.label }}</span><i></i>
+        </RouterLink>
+      </template>
+      <template v-if="auth.user?.role === 'SHOP_EMPLOYEE'">
+        <RouterLink v-for="item in employeeLinks" :key="item.name" class="nav-link merchant-nav" :class="{ active: isActive(item.name) }" :to="{ name: item.name }">
+          <el-icon><Shop /></el-icon><span>{{ item.label }}</span><i></i>
+        </RouterLink>
+      </template>
+      <RouterLink v-if="auth.user?.role === 'NONE'" class="nav-link merchant-nav" :class="{ active: route.name === 'identity-applications' }" :to="{ name: 'identity-applications' }"><el-icon><Tickets /></el-icon><span>身份申请中心</span><i></i></RouterLink>
       <div class="sidebar-note">
         <div class="note-icon"><el-icon><Lock /></el-icon></div>
         <strong>安全访问</strong>

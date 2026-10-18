@@ -28,7 +28,8 @@ async function save() {
 }
 </script>
 <template>
-  <div class="merchant-page"><div class="welcome-row"><div><div class="page-eyebrow">MERCHANT PROFILE</div><h1>商家资料</h1><p>当前商家编号：{{ scope.auth.user?.merchant_id }}</p></div></div>
-    <section class="merchant-card profile-form"><label for="merchant-name">商家名称</label><p v-if="confirmedName" class="confirmed-name">当前服务端确认名称：<strong>{{ confirmedName }}</strong></p><el-input id="merchant-name" v-model="name" placeholder="未读取，请输入新名称" @keyup.enter="save"/><small>系统没有商家资料读取接口。成功保存后显示 PATCH 响应中的名称。{{ [...name].length }} / 255 个 Unicode 字符</small><p v-if="error" class="inline-error" role="alert">{{ error }}</p><el-button type="primary" :loading="busy" :disabled="busy" @click="save">保存名称</el-button></section>
+  <div class="merchant-page">
+    <div class="welcome-row"><div><div class="page-eyebrow">MERCHANT PROFILE</div><h1>商家资料</h1><p>当前商家编号：{{ scope.auth.user?.merchant_id }}</p></div></div>
+    <section class="merchant-card profile-form"><label for="merchant-name">商家名称</label><p v-if="confirmedName" class="confirmed-name">当前服务端确认名称：<strong>{{ confirmedName }}</strong></p><el-input id="merchant-name" v-model="name" placeholder="未读取，请输入新名称" @keyup.enter="save" /><small>系统没有商家资料读取接口。成功保存后显示 PATCH 响应中的名称。{{ [...name].length }} / 255 个 Unicode 字符</small><p v-if="error" class="inline-error" role="alert">{{ error }}</p><el-button type="primary" :loading="busy" :disabled="busy" @click="save">保存名称</el-button></section>
   </div>
 </template>

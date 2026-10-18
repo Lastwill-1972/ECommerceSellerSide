@@ -12,14 +12,23 @@ const roleLabels = {
   SHOP_OWNER: '店铺店主', SHOP_EMPLOYEE: '店铺员工', NONE: '尚未分配业务身份',
 } as const
 const roleLabel = computed(() => auth.user ? roleLabels[auth.user.role] : '身份未确认')
+const entryRoute = computed(() => {
+  switch (auth.user?.role) {
+    case 'MERCHANT_ADMIN': return 'merchant-home'
+    case 'SHOP_OWNER': return 'shop-home'
+    case 'SHOP_EMPLOYEE': return 'employee-home'
+    case 'NONE': return 'identity-applications'
+    default: return null
+  }
+})
 const accountMark = computed(() => auth.user?.username.slice(0, 1).toUpperCase() ?? '—')
 const entryInfo = computed(() => {
   switch (auth.user?.role) {
     case 'PLATFORM_ADMIN': return { title: '平台管理', detail: '本阶段仅提供账号身份查看，平台管理界面尚未开放' }
     case 'MERCHANT_ADMIN': return { title: '商家经营', detail: '管理商家资料、店铺申请、共享仓库授权和订单信息' }
-    case 'SHOP_OWNER': return { title: '店铺管理', detail: '店铺经营与员工管理入口将在后续阶段开放' }
-    case 'SHOP_EMPLOYEE': return { title: '店铺工作', detail: '店铺业务操作入口将在后续阶段开放' }
-    default: return { title: '业务身份待分配', detail: '账号已创建，待建立商家或店铺关系后才能开通业务入口' }
+    case 'SHOP_OWNER': return { title: '店铺管理', detail: '管理本店员工、岗位、订单、仓库授权与负责人交接' }
+    case 'SHOP_EMPLOYEE': return { title: '员工工作台', detail: '本店订单权限固定：可查看并创建本店订单，商品与库存仅只读，员工、岗位与授权申请不对员工开放' }
+    default: return { title: '身份申请中心', detail: '申请商家入驻、开店或员工入职；身份由审批结果决定' }
   }
 })
 
@@ -65,10 +74,11 @@ async function refreshIdentity() {
     </section>
 
     <div class="lower-grid">
-      <section class="entry-panel"><div class="panel-heading"><div><span class="section-kicker">QUICK ACCESS</span><h2>工作入口</h2></div><span class="coming-label">{{ auth.user?.role === 'MERCHANT_ADMIN' ? '已开放' : '本阶段未开放' }}</span></div><RouterLink v-if="auth.user?.role === 'MERCHANT_ADMIN'" class="entry-row merchant-entry" :to="{ name: 'merchant-home' }"><span class="entry-icon"><el-icon><Grid /></el-icon></span><div class="entry-copy"><strong>{{ entryInfo.title }}</strong><span>{{ entryInfo.detail }}</span></div><span class="entry-status"><i></i> 进入工作区</span><el-icon class="entry-arrow"><TopRight /></el-icon></RouterLink><div v-else class="entry-row entry-disabled"><span class="entry-icon"><el-icon><Grid /></el-icon></span><div class="entry-copy"><strong>{{ entryInfo.title }}</strong><span>{{ entryInfo.detail }}</span></div><span class="entry-status"><i></i> 暂未开放</span></div><div class="entry-foot"><el-icon><InfoFilled /></el-icon> {{ auth.user?.role === 'MERCHANT_ADMIN' ? '商家页面由服务端身份关系授权。' : '当前版本仅提供账号登录、身份查看与退出。' }}</div></section>
+      <section class="entry-panel"><div class="panel-heading"><div><span class="section-kicker">QUICK ACCESS</span><h2>工作入口</h2></div><span class="coming-label">{{ entryRoute ? '已开放' : '本阶段未开放' }}</span></div><RouterLink v-if="entryRoute" class="entry-row merchant-entry" :to="{ name: entryRoute }"><span class="entry-icon"><el-icon><Grid /></el-icon></span><div class="entry-copy"><strong>{{ entryInfo.title }}</strong><span>{{ entryInfo.detail }}</span></div><span class="entry-status"><i></i> 进入工作区</span><el-icon class="entry-arrow"><TopRight /></el-icon></RouterLink><div v-else class="entry-row entry-disabled"><span class="entry-icon"><el-icon><Grid /></el-icon></span><div class="entry-copy"><strong>{{ entryInfo.title }}</strong><span>{{ entryInfo.detail }}</span></div><span class="entry-status"><i></i> 暂未开放</span></div><div class="entry-foot"><el-icon><InfoFilled /></el-icon> {{ entryRoute ? '业务访问由服务端实时身份关系授权。' : '当前身份暂保留账号工作台。' }}</div></section>
       <section class="identity-panel"><div class="panel-heading"><div><span class="section-kicker">IDENTITY</span><h2>身份信息</h2></div><span class="identity-badge"><el-icon><Lock /></el-icon> 服务端确认</span></div><div class="identity-user"><span class="identity-avatar">{{ accountMark }}</span><div><strong>{{ auth.user?.username }}</strong><span>{{ roleLabel }}</span></div></div><div class="identity-facts"><div><span>商家编号</span><strong>{{ auth.user?.merchant_id ?? '—' }}</strong></div><div><span>店铺编号</span><strong>{{ auth.user?.shop_id ?? '—' }}</strong></div></div><p class="identity-footnote"><el-icon><InfoFilled /></el-icon> 页面菜单仅帮助导航，实际访问权限始终由后端验证。</p></section>
     </div>
 
     <div v-if="auth.user?.role === 'PLATFORM_ADMIN'" class="platform-note"><el-icon><InfoFilled /></el-icon><span>平台管理员身份已确认。本阶段工作台仅展示账户状态，平台管理界面尚未开放。</span></div>
+    <div v-if="auth.user?.role === 'SHOP_EMPLOYEE'" class="platform-note"><el-icon><InfoFilled /></el-icon><span>员工权限固定为本店订单查看与创建；商品、库存仅只读，员工、岗位与授权申请入口不对员工开放。</span></div>
   </div>
 </template>

@@ -1,10 +1,15 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount, flushPromises } from '@vue/test-utils'
-import { defineComponent, h } from 'vue'
 import { createPinia, setActivePinia } from 'pinia'
 import { createMemoryHistory, createRouter } from 'vue-router'
 import { ApiError } from '@/shared/http/errors'
 import { ElMessage } from 'element-plus'
+import ButtonStub from '@/modules/merchant/test-support/ButtonStub'
+import InputStub from '@/modules/merchant/test-support/InputStub'
+import DialogStub from '@/modules/merchant/test-support/DialogStub'
+import SelectStub from '@/modules/merchant/test-support/SelectStub'
+import OptionStub from '@/modules/merchant/test-support/OptionStub'
+import AlertStub from '@/modules/merchant/test-support/AlertStub'
 import ReviewQueue from './ReviewQueue.vue'
 import { listShopApplications, listShops, listWarehouseApplications, reviewShopApplication, reviewWarehouseApplication } from '@/modules/merchant/api'
 
@@ -12,17 +17,14 @@ vi.mock('@/modules/merchant/api', () => ({
   listShopApplications: vi.fn(), listShops: vi.fn(), listWarehouseApplications: vi.fn(),
   reviewShopApplication: vi.fn(), reviewWarehouseApplication: vi.fn(),
 }))
-vi.mock('element-plus', () => ({ ElMessage: { success: vi.fn(), error: vi.fn() } }))
+vi.mock('element-plus', async (importOriginal) => ({
+  ...await importOriginal<typeof import('element-plus')>(),
+  ElMessage: { success: vi.fn(), error: vi.fn() },
+}))
 
 const page = (items: unknown[]) => ({ items, limit: 20, offset: 0, total: items.length })
 const shopApp = { id: '9007199254740999', merchant_id: '9007199254740993', applicant_user_id: '9007199254740995', shop_name: '新店', status: 'PENDING', reviewer_user_id: null, rejection_reason: null, created_shop_id: null, created_at: '2026-10-17T09:30:00', reviewed_at: null }
 const warehouseApp = { id: '9007199254741001', shop_id: '9007199254740997', applicant_user_id: '9007199254740995', status: 'PENDING', reviewer_user_id: null, rejection_reason: null, created_at: '2026-10-17T09:30:00', reviewed_at: null }
-const button = defineComponent({ props: ['disabled', 'loading', 'type'], emits: ['click'], setup(props, { slots, emit }) { return () => h('button', { disabled: props.disabled, onClick: () => emit('click') }, slots.default?.()) } })
-const input = defineComponent({ props: ['modelValue', 'type', 'maxlength'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h(props.type === 'textarea' ? 'textarea' : 'input', { value: props.modelValue, maxlength: props.maxlength, onInput: (e: Event) => emit('update:modelValue', (e.target as HTMLInputElement).value) }) } })
-const dialog = defineComponent({ props: ['modelValue'], setup(props, { slots }) { return () => props.modelValue ? h('div', { class: 'dialog' }, [slots.default?.(), slots.footer?.()]) : null } })
-const select = defineComponent({ props: ['modelValue'], emits: ['update:modelValue', 'change'], setup(props, { slots, emit }) { return () => h('div', slots.default?.()) } })
-const option = defineComponent({ setup(_, { slots }) { return () => h('span', slots.default?.()) } })
-const alert = defineComponent({ props: ['title'], setup(props) { return () => h('p', props.title) } })
 const router = createRouter({ history: createMemoryHistory(), routes: [{ path: '/', component: { template: '<div />' } }] })
 const sampleShop = { id: '9007199254740997', merchant_id: '9007199254740993', name: '示例店', owner_user_id: '9007199254740999', created_at: '2026-10-17T09:00:00' }
 
@@ -39,7 +41,7 @@ async function mountQueue(kind: 'shop' | 'warehouse', rows?: unknown[]) {
   vi.mocked(listShops).mockResolvedValue(page([sampleShop]) as never)
   vi.mocked(reviewShopApplication).mockResolvedValue(shopApp as never)
   vi.mocked(reviewWarehouseApplication).mockResolvedValue(warehouseApp as never)
-  const wrapper = mount(ReviewQueue, { props: { kind }, global: { plugins: [router], stubs: { ElButton: button, ElInput: input, ElDialog: dialog, ElSelect: select, ElOption: option, ElAlert: alert } } })
+  const wrapper = mount(ReviewQueue, { props: { kind }, global: { plugins: [router], stubs: { ElButton: ButtonStub, ElInput: InputStub, ElDialog: DialogStub, ElSelect: SelectStub, ElOption: OptionStub, ElAlert: AlertStub } } })
   await flushPromises()
   return wrapper
 }
@@ -110,6 +112,22 @@ describe('merchant review queue', () => {
     expect(listShopApplications).toHaveBeenCalledTimes(4)
     expect(ElMessage.error).toHaveBeenCalled()
     conflictWrapper.unmount()
+  })
+
+  it('keeps row actions locked until the prior dialog close transition finishes', async () => {
+    const secondApplication = { ...shopApp, id: '9007199254741101', shop_name: '第二家店' }
+    const wrapper = await mountQueue('shop', [shopApp, secondApplication])
+    await wrapper.findAll('button').find((node) => node.text() === '批准')!.trigger('click')
+    await wrapper.findAll('button').find((node) => node.text().includes('确认批准'))!.trigger('click')
+    await flushPromises()
+    const rejectButtons = wrapper.findAll('button').filter((node) => node.text() === '拒绝')
+    expect(rejectButtons).toHaveLength(2)
+    expect(rejectButtons[1].attributes('disabled')).toBeDefined()
+    expect(wrapper.findAll('textarea')).toHaveLength(0)
+    await new Promise((resolve) => setTimeout(resolve, 30))
+    await rejectButtons[1].trigger('click')
+    expect(wrapper.findAll('textarea')).toHaveLength(1)
+    wrapper.unmount()
   })
 
   it('shows an empty state and requests the next page with an offset', async () => {

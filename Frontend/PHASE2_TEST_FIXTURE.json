@@ -1,4 +1,6 @@
 {
+  "status": "cleaned",
+  "note": "Historical fixture metadata only. The dedicated test database, fixture accounts, and API/Vite test processes were cleaned after acceptance; these identifiers and old process IDs are not available resources.",
   "db": "test_frontend_phase2_92761e61",
   "backend_pid": 13000,
   "url": "http://127.0.0.1:8012",

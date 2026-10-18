@@ -57,3 +57,31 @@ export interface Order {
   id: string; merchant_id: string; shop_id: string; created_by_user_id: string; status: 'PENDING' | 'COMPLETED' | 'CANCELLED'
   total_amount: string; created_at: string; completed_at: string | null; cancelled_at: string | null; items: OrderItem[]
 }
+
+export type SpuStatus = 'OFF_SALE' | 'ON_SALE'
+export interface Category { id: string; merchant_id: string; name: string; created_at: string }
+export interface Spu {
+  id: string; merchant_id: string; category_id: string; name: string; description: string | null
+  status: SpuStatus; created_at: string; updated_at: string
+}
+export interface Sku {
+  id: string; spu_id: string; sku_code: string; specification: string; price: string
+  created_at: string; updated_at: string
+}
+export interface SpuDetail extends Spu { skus: Sku[] }
+export type OffshelfStatus = 'PENDING' | 'APPROVED' | 'REJECTED'
+export interface OffshelfApplication {
+  id: string; spu_id: string; applicant_user_id: string; status: OffshelfStatus
+  reviewer_user_id: string | null; rejection_reason: string | null; created_at: string; reviewed_at: string | null
+  spu: { id: string; name: string; status: SpuStatus; merchant_id: string }
+}
+export interface Warehouse { id: string; merchant_id: string; name: string; created_at: string }
+export interface Stock {
+  sku_id: string; sku_code: string; specification: string; spu_id: string; spu_name: string
+  warehouse_id: string; quantity: string
+}
+export interface StockMovement {
+  movement_id: string; sku_id: string; quantity_before: string; quantity_delta: string; quantity_after: string
+  idempotency_key: string | null; merchant_id: string; warehouse_id: string; actor_user_id: string
+  operation_type: string; order_item_id: string | null; created_at: string
+}

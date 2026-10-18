@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { ElMessage } from 'element-plus'
+import { ElAlert, ElMessage } from 'element-plus'
 import { ApiError } from '@/shared/http/errors'
 import { useAuthStore } from '@/modules/auth/store'
 import { safeInternalRedirect } from '@/app/router'

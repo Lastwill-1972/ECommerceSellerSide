@@ -1,0 +1,43 @@
+{
+  "status": "cleaned",
+  "db": "test_frontend_phase3_2015f19e",
+  "api_url": "http://127.0.0.1:8013",
+  "users": {
+    "admin_a": "frontend3_admin_a",
+    "admin_b": "frontend3_admin_b",
+    "owner_a1": "frontend3_owner_a1",
+    "owner_a2": "frontend3_owner_a2",
+    "owner_b": "frontend3_owner_b",
+    "platform": "frontend3_platform",
+    "employee": "frontend3_employee",
+    "plain": "frontend3_plain"
+  },
+  "user_ids": {
+    "admin_a": "9007199254750001",
+    "admin_b": "9007199254750002",
+    "owner_a1": "9007199254750003",
+    "owner_a2": "9007199254750004",
+    "owner_b": "9007199254750005",
+    "platform": "9007199254750006",
+    "employee": "9007199254750007",
+    "plain": "9007199254750008"
+  },
+  "merchant_a": "9007199254750101",
+  "merchant_b": "9007199254750102",
+  "shop_a1": "9007199254750301",
+  "shop_a2": "9007199254750302",
+  "shop_b": "9007199254750303",
+  "backend_pid": 43796,
+  "a_category": "9007199254751001",
+  "a_spu": "9007199254751001",
+  "a_sku": "9007199254751001",
+  "b_category": "9007199254751002",
+  "b_spu": "9007199254751002",
+  "b_sku": "9007199254751002",
+  "order_a1": "1",
+  "order_a2": "2",
+  "browser_spu": "9007199254751003",
+  "browser_sku": "9007199254751003",
+  "browser_offshelf_approved": "9007199254751001",
+  "note": "Historical disposable fixture only. Database, accounts, API, proxy, Vite and temporary logs removed after acceptance. No development database writes."
+}

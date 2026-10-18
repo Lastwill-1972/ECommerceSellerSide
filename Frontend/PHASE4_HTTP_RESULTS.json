@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "mysql_version": "9.7.2",
+  "head": "20261017_phase12",
+  "checks": [
+    {
+      "check": "FORCE old owner loses role",
+      "result": "passed"
+    },
+    {
+      "check": "FORCE new owner identity",
+      "result": "passed"
+    },
+    {
+      "check": "normal handoff restores original employee identity",
+      "result": "passed"
+    },
+    {
+      "check": "normal return restores the exact original custom role",
+      "result": "passed"
+    },
+    {
+      "check": "merchant A/B shop lists isolated",
+      "result": "passed"
+    },
+    {
+      "check": "owner employee applications scoped to own shop",
+      "result": "passed"
+    },
+    {
+      "check": "cross-shop employee/role access and cross-merchant handoff rejected",
+      "result": "passed"
+    },
+    {
+      "check": "foreign shop role assignment rejected",
+      "result": "passed"
+    },
+    {
+      "check": "employee and platform cannot manage shop team",
+      "result": "passed"
+    },
+    {
+      "check": "owner product and manual inventory writes forbidden",
+      "result": "passed"
+    },
+    {
+      "check": "warehouse grant survives handoff and prevents duplicate grant request",
+      "result": "passed"
+    },
+    {
+      "check": "invalid or stale proposal and blank FORCE reason fail 409/422",
+      "result": "passed"
+    },
+    {
+      "check": "role uniqueness and schema length failures 409/422",
+      "result": "passed"
+    },
+    {
+      "check": "merchant A cannot review merchant B application",
+      "result": "passed"
+    },
+    {
+      "check": "single pending employee application, rejection and duplicate review guarded",
+      "result": "passed"
+    },
+    {
+      "check": "204 removal preserves user, old JWT immediately loses employee access",
+      "result": "passed"
+    },
+    {
+      "check": "removed employee reapplies normally and is authorized from current relation",
+      "result": "passed"
+    },
+    {
+      "check": "missing and illegal token rejected 401",
+      "result": "passed"
+    },
+    {
+      "check": "real MySQL head, 20 tables, preserved warehouse grant and transfer audit events",
+      "result": "passed"
+    },
+    {
+      "check": "running FastAPI OpenAPI equals checked phase4 contract",
+      "result": "passed"
+    }
+  ],
+  "browser": {
+    "status": "passed",
+    "flows": [
+      "register and NONE applications",
+      "real identity refresh after approval",
+      "employee approval, roles, 204 removal and reapplication",
+      "warehouse forbidden state and approved zero-stock read",
+      "read-only catalog with decimal price",
+      "normal handoff round trip and exact original role restoration",
+      "FORCE confirmation and old JWT access revocation",
+      "real browser 401, 403 and 409 feedback"
+    ],
+    "final_owner_console_vue_errors_warnings": 0,
+    "final_merchant_console_vue_errors_warnings": 0,
+    "note": "422 verified by real HTTP and Vitest; not browser fault injection. Initial missing ElAlert warning fixed and retested."
+  },
+  "cleanup": {
+    "database_removed_and_absence_verified": true,
+    "accounts_removed": 9,
+    "api_and_vite_ports_clear": true,
+    "browser_sessions_closed": 3,
+    "backend_baseline_files_unchanged": 116
+  }
+}

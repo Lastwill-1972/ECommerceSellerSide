@@ -1,0 +1,116 @@
+{
+  "strict_sku_numeric_string_rejected": {
+    "actual": 422,
+    "expected": 422
+  },
+  "exact_bigint_numeric_write": {
+    "actual": 200,
+    "expected": 200
+  },
+  "same_key_replay": {
+    "actual": 200,
+    "expected": 200
+  },
+  "same_key_different_payload": {
+    "actual": 409,
+    "expected": 409
+  },
+  "stock_insufficient": {
+    "actual": 409,
+    "expected": 409
+  },
+  "zero_delta": {
+    "actual": 422,
+    "expected": 422
+  },
+  "plain_patch_status_forbidden": {
+    "actual": 422,
+    "expected": 422
+  },
+  "cross_spu_read": {
+    "actual": 404,
+    "expected": 404
+  },
+  "cross_spu_edit": {
+    "actual": 404,
+    "expected": 404
+  },
+  "cross_inventory_write": {
+    "actual": 404,
+    "expected": 404
+  },
+  "owner_a1_manual_forbidden": {
+    "actual": 403,
+    "expected": 403
+  },
+  "employee_manual_forbidden": {
+    "actual": 403,
+    "expected": 403
+  },
+  "plain_manual_forbidden": {
+    "actual": 403,
+    "expected": 403
+  },
+  "platform_manual_forbidden": {
+    "actual": 403,
+    "expected": 403
+  },
+  "two_authorized_shops_shared_stock": {
+    "quantity": 104,
+    "equal": true
+  },
+  "same_key_stock_once": {
+    "quantity_after": 104,
+    "movement_count": 1
+  },
+  "browser_acceptance": {
+    "catalog_create_edit_publish_offshelf_history": "passed",
+    "price_roundtrip": [
+      "9999999999.99",
+      "1234567890.09"
+    ],
+    "new_sku_initial_quantity": "0",
+    "manual_increase_decrease": "passed",
+    "lost_success_response_same_key_after_refresh": "passed; +5 applied once; one movement",
+    "unknown_confirmed_by_real_movements": "passed",
+    "stale_cache_insufficient_409": "passed",
+    "merchant_A_B_catalog_inventory_isolation": "passed",
+    "employee_owner_platform_none_route_denial": "passed",
+    "disabled_account_401": "passed",
+    "identity_change_403_cleans_failed_operation": "passed after fix",
+    "resource_404_persistent_error_retry": "passed via test proxy redirect to nonexistent resource",
+    "validation_422_keeps_form": "passed via test proxy invalidates category payload; actual FastAPI validation",
+    "legacy_merchant_pages": "passed",
+    "vue_console_warnings_errors": []
+  },
+  "final_fixture_counts": {
+    "users": 8,
+    "merchants": 2,
+    "shops": 3,
+    "categories": 3,
+    "spus": 3,
+    "skus": 3,
+    "stocks": 3,
+    "stock_movements": 12,
+    "orders": 2
+  },
+  "final_checks": {
+    "lint": "passed; zero warnings",
+    "typecheck": "passed",
+    "vitest": "17 files, 60 tests passed",
+    "build": "passed",
+    "backend_baseline_files_unchanged": 116,
+    "backend_full_pytest": "not run; backend unchanged",
+    "mobile_viewport": "not run; CSS min widths and breakpoints inspected",
+    "post_cleanup_inventory_pagination_fix": "component regression passed; no repeat real-browser run"
+  },
+  "cleanup": "Owned isolated database and test processes removed; no development data modified",
+  "bundle": {
+    "main_kb": 135.18,
+    "main_gzip_kb": 46.41,
+    "initial_js_including_preloads_kb": 415.93,
+    "catalog_kb": 30.19,
+    "inventory_kb": 16.2,
+    "css_kb": 388.12
+  }
+}

@@ -1,6 +1,6 @@
 import JSONbigFactory from 'json-bigint'
 
-const JSONbig = JSONbigFactory({ storeAsString: true })
+const JSONbig = JSONbigFactory({ storeAsString: true, useNativeBigInt: true })
 
 /** Parse JSON while keeping every integer token as its exact decimal text. */
 export function parseApiJson(data: unknown): unknown {
@@ -10,6 +10,11 @@ export function parseApiJson(data: unknown): unknown {
   } catch {
     return data
   }
+}
+
+/** Serialize integer identifiers as exact JSON number tokens for strict integer APIs. */
+export function stringifyApiJson(data: unknown): string {
+  return JSONbig.stringify(data)
 }
 
 /** Render decimal amount strings without ever converting through JS Number. */
