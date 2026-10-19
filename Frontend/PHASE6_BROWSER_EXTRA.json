@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "plain forbidden /merchant/audit",
+    "plain forbidden /shop/orders",
+    "plain forbidden /employee/orders",
+    "employee forbidden /merchant/audit",
+    "employee forbidden /shop/employees",
+    "platform forbidden /merchant/audit",
+    "platform forbidden /shop/audit",
+    "admin_a forbidden /shop/orders",
+    "warehouse resource 403 remains on shop inventory page",
+    "mobile approval/rejection dialogs fit viewport and validate reason",
+    "long product/SKU and max catalog price rendered in mobile detail",
+    "lost request record reload issues no new POST and shows manual reconciliation warning"
+  ],
+  "console": [],
+  "order_posts": [
+    {
+      "url": "http://127.0.0.1:6179/api/v1/orders",
+      "key": "e568cb88-3c7b-4438-a063-2f8a30f763d5"
+    }
+  ],
+  "long_price_confirmed": "9999999999.99",
+  "long_dialog_width": 390
+}

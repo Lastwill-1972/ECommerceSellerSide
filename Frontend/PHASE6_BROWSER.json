@@ -1,0 +1,356 @@
+{
+  "engine": "Chromium",
+  "viewports": [
+    {
+      "role": "merchant",
+      "route": "/merchant/profile",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/shops",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/applications",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/catalog",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/inventory",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/orders",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/audit",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/profile",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/shops",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/applications",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/catalog",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/inventory",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/orders",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "merchant",
+      "route": "/merchant/audit",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/employees",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/applications",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/roles",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/warehouse",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/catalog",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/inventory",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/orders",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/orders/create",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/orders/3",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/audit",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/employees",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/applications",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/roles",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/warehouse",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/catalog",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/inventory",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/orders",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/orders/create",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/orders/3",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "owner",
+      "route": "/shop/audit",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/catalog",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/inventory",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/orders",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/orders/create",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/orders/3",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/catalog",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/inventory",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/orders",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/orders/create",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "employee",
+      "route": "/employee/orders/3",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    },
+    {
+      "role": "none",
+      "route": "/applications",
+      "width": 1440,
+      "height": 1000,
+      "document_overflow": 0
+    },
+    {
+      "role": "none",
+      "route": "/applications",
+      "width": 390,
+      "height": 844,
+      "document_overflow": 0
+    }
+  ],
+  "checks": [
+    "inventory successful response lost; reload preserves original key; explicit retry confirms",
+    "employee create response loss triggered; pending UI inspected"
+  ],
+  "console": [],
+  "screenshots": [
+    "docs/phase6/merchant-audit-1440.png",
+    "docs/phase6/merchant-audit-390.png",
+    "docs/phase6/owner-audit-1440.png",
+    "docs/phase6/owner-create-390.png",
+    "docs/phase6/owner-audit-390.png",
+    "docs/phase6/employee-create-390.png",
+    "docs/phase6/none-applications-390.png"
+  ],
+  "order_unknown_text": "新建订单\n\n只发送商品与数量；商家、店铺、下单人与价格均由服务端决定，本页不计算金额。\n\n返回订单列表\n记录丢失无法自动证明请求失败：如曾提交下单，请先核对历史订单，再决定是否重新下单。\n当前身份\n用户编号\n9007199254770007\n商家编号\n67\n店铺编号\n52\n身份\n员工\n存在未确认的订单请求\n\n状态：结果未知/待核对。该请求可能已成功，禁止自动重发或更换幂等键；请先核对历史订单，再按原请求重试。\n\n幂等键\n6bdd983c-e1d6-411b-847c-22a01336c026\n创建时间\n2026-10-19T03:15:19.750Z\nSKU 编号\t数量\n23\t1\n按原请求重试\n我已人工核对订单，放弃该请求\n购物清单\n\n存在未确认的请求记录，购物清单已锁定，只能按原请求重试或人工核对后放弃。\n\nSKU 编号\t编码\t规格\t单价\t数量（正整数 1..9223372036854775807）\t操作\n23\tQA6-1\t标准\t19.90\t\t\n移除\n\n共 1 个不同 SKU（上限 100）；订单金额以服务端返回为准。\n\n保存并提交订单\n下单请求返回 HTTP 503：订单结果未知，已保留原幂等键与明细，禁止自动重发。请先核对历史订单，再按原请求重试。服务端信息：认证服务暂不可用，请稍后重试。"
+}

@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "database": "test_deepseek_f2da55c9a48a",
+  "checks": [
+    {
+      "check": "real MySQL isolated schema, 20 tables, migration head verified",
+      "result": "passed"
+    },
+    {
+      "check": "two authorized shops share exactly the same warehouse and SKU stock",
+      "result": "passed"
+    },
+    {
+      "check": "complete does not deduct twice; employee cancellation restores stock",
+      "result": "passed"
+    },
+    {
+      "check": "original key replays cancelled order without rededuction; changed payload/actor rejected",
+      "result": "passed"
+    },
+    {
+      "check": "multi-SKU shortage rolls back whole order and all stock deductions",
+      "result": "passed"
+    },
+    {
+      "check": "real strict integer schema rejects zero quantity and JSON string SKU id",
+      "result": "passed"
+    },
+    {
+      "check": "cross-shop/cross-merchant details rejected; merchant read-only and NONE/platform boundaries",
+      "result": "passed"
+    },
+    {
+      "check": "five fixed identities enforce backend resource and write boundaries",
+      "result": "passed"
+    },
+    {
+      "check": "custom employee job title does not grant management permissions",
+      "result": "passed"
+    },
+    {
+      "check": "merchant catalog and audit scope isolation plus naive time filters",
+      "result": "passed"
+    },
+    {
+      "check": "two real shops compete for one unit: one order succeeds, other conflicts, no oversell",
+      "result": "passed"
+    },
+    {
+      "check": "pending cancellation restores once; repeated cancellation and completed cancellation conflict",
+      "result": "passed"
+    },
+    {
+      "check": "repricing and approved offshelf preserve historical snapshots; new off-sale orders rejected",
+      "result": "passed"
+    },
+    {
+      "check": "removed employee old JWT immediately loses order access",
+      "result": "passed"
+    },
+    {
+      "check": "removed employee can reapply and recover only the new valid relationship",
+      "result": "passed"
+    },
+    {
+      "check": "owner handoff revokes old JWT business access and preserves shop warehouse grant",
+      "result": "passed"
+    }
+  ],
+  "concurrency_statuses": [
+    201,
+    409
+  ],
+  "replay_key": "186edfc3-2637-476c-84dd-200e904a08e4"
+}

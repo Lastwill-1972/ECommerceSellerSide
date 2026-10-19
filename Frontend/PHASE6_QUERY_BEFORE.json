@@ -1,0 +1,24 @@
+{
+  "fixture_orders": 100,
+  "results": [
+    {
+      "limit": 1,
+      "returned": 1,
+      "sql_count": 3,
+      "elapsed_ms": 3.75
+    },
+    {
+      "limit": 20,
+      "returned": 20,
+      "sql_count": 22,
+      "elapsed_ms": 10.08
+    },
+    {
+      "limit": 50,
+      "returned": 50,
+      "sql_count": 52,
+      "elapsed_ms": 21.22
+    }
+  ],
+  "temporary_rows_removed": true
+}

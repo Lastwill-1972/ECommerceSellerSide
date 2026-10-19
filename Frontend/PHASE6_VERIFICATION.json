@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-19",
+  "stage": 6,
+  "complete": true,
+  "frontend": {
+    "lint": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "typecheck": "passed",
+    "vitest": {
+      "files": 28,
+      "passed": 179,
+      "failed": 0,
+      "skipped": 0
+    },
+    "build": "passed"
+  },
+  "backend_full": {
+    "python": "3.12.14 Windows",
+    "mysql": "9.7.2",
+    "passed": 110,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 1
+  },
+  "initial_backend": {
+    "passed": 106,
+    "failed": 3,
+    "skipped": 0,
+    "reason": "MySQL 1419 test trigger creation"
+  },
+  "http_groups_passed": 16,
+  "chromium_viewports": 48,
+  "chromium_vue_errors_warnings": 0,
+  "other_browser_engines": "not verified",
+  "mysql_8_4": "not verified",
+  "docker_startup": "not verified",
+  "nginx_t": "not verified",
+  "linux_full_runtime": "not verified",
+  "orm_metadata_diff": [],
+  "business_api_count": 46,
+  "business_tables": 20,
+  "alembic_head": "20261017_phase12",
+  "historical_migrations_changed": false,
+  "backend_app_changed": [
+    "backend/app/services/orders.py"
+  ],
+  "secret_scan": "no configured database/JWT secret or temporary QA password found in inspected docs/reports/bundle",
+  "cleanup": "verified",
+  "portfolio_demo": "local demonstration ready; production target validation pending"
+}

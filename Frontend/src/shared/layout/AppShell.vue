@@ -17,6 +17,7 @@ const merchantLinks = [
   { name: 'merchant-catalog', label: '商品管理', icon: 'Goods' },
   { name: 'merchant-inventory', label: '库存管理', icon: 'Box' },
   { name: 'merchant-owner-transfer', label: '负责人交接', icon: 'SwitchButton' },
+  { name: 'merchant-audit', label: '审计查询', icon: 'Tickets' },
 ] as const
 const shopLinks = [
   { name: 'shop-home', label: '店铺概览' }, { name: 'shop-employees', label: '本店员工' },
@@ -24,6 +25,7 @@ const shopLinks = [
   { name: 'shop-warehouse', label: '仓库授权' }, { name: 'shop-catalog', label: '商家商品只读' },
   { name: 'shop-inventory', label: '共享库存只读' }, { name: 'shop-orders', label: '订单列表' },
   { name: 'shop-order-create', label: '创建订单' }, { name: 'shop-owner-transfer', label: '提议负责人交接' },
+  { name: 'shop-audit', label: '审计查询' },
 ] as const
 const employeeLinks = [
   { name: 'employee-home', label: '员工概览' }, { name: 'employee-catalog', label: '商品只读' },
@@ -31,6 +33,18 @@ const employeeLinks = [
   { name: 'employee-order-create', label: '创建订单' },
 ] as const
 const pageTitle = computed(() => typeof route.meta.title === 'string' ? route.meta.title : '工作台')
+const mobileLinks = computed(() => [
+  { name: 'dashboard', label: '工作台' },
+  ...(auth.user?.role === 'MERCHANT_ADMIN' ? merchantLinks :
+    auth.user?.role === 'SHOP_OWNER' ? shopLinks :
+    auth.user?.role === 'SHOP_EMPLOYEE' ? employeeLinks :
+    auth.user?.role === 'NONE' ? [{ name: 'identity-applications', label: '身份申请中心' }] : []),
+])
+const mobileSelection = computed(() => mobileLinks.value.some(item => item.name === route.name) ? String(route.name) : '')
+function navigateMobile(event: Event) {
+  const name = (event.target as HTMLSelectElement).value
+  if (mobileLinks.value.some(item => item.name === name)) void router.push({ name })
+}
 const inMerchant = computed(() => route.name !== 'dashboard')
 watch(() => [auth.token, auth.identityState] as const, ([token, state]) => {
   if (state === 'conflict') void router.replace({ name: 'forbidden' })
@@ -115,6 +129,13 @@ function signOut() {
           </el-dropdown>
         </div>
       </header>
+      <nav class="mobile-navigation" aria-label="移动端工作台导航">
+        <label for="mobile-page-select">前往页面</label>
+        <select id="mobile-page-select" :value="mobileSelection" @change="navigateMobile">
+          <option value="" disabled>请选择页面</option>
+          <option v-for="item in mobileLinks" :key="item.name" :value="item.name">{{ item.label }}</option>
+        </select>
+      </nav>
       <main class="page-content"><RouterView /></main>
       <footer class="page-footer"><span>拾集商家工作台</span><span>为每一份生意，认真服务</span></footer>
     </section>

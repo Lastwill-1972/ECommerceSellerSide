@@ -1,0 +1,19 @@
+{
+  "audit_directory": "C:\\Users\\lastwill\\.codex\\mcp\\deepseek\\runs\\bac4d8fba2e14f54a7acd637c0a642c4",
+  "exit_code": 1,
+  "passed": 106,
+  "failed": 3,
+  "skipped": 0,
+  "warning_count": 1,
+  "reason": "MySQL 1419 while creating fault-injection triggers under schema-restricted account; assertions not reached in initial run",
+  "failed_cases": [
+    "tests/test_inventory.py::test_inventory_mysql_failures_roll_back_and_audit_failure_keeps_business_result",
+    "tests/test_orders.py::test_order_write_atomicity_and_independent_audit_failure",
+    "tests/test_phase12.py::test_mysql_database_failure_mid_confirmation_rolls_back_owner_and_employee_rows"
+  ],
+  "database_cleanup_operation": {
+    "operation": "database_cleanup",
+    "database": "test_deepseek_41ece7a353a7",
+    "success": true
+  }
+}

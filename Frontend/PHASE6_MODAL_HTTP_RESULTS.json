@@ -1,0 +1,174 @@
+{
+  "proxy_requests": [
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "81dff8363e5223f95c8b265549209e28867abce8c237d8413fc0b0f6cd262578"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/shops/applications?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/shops?limit=100&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/access-applications?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/shops?limit=100&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/inventory/access-applications/4/review",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e4051263ea2e4dced061055b19d778c441c746509273a28da9e8ce7cd612ebd5"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/inventory/access-applications?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/shops?limit=100&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/shops?limit=100&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/shops/applications?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/shops/applications/5/review",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "ffc95d5a6d2fc31b1837082c8802873b422baa767afdfb909ea691f2a816707a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/shops/applications?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/shops?limit=100&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/categories?limit=100&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus?limit=20&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/offshelf-applications?limit=10&offset=0",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/spus/2",
+      "backend_status": 200,
+      "returned_status": 200,
+      "key": null,
+      "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "cleanup": "cleaned",
+  "audit_directory": "C:\\Users\\lastwill\\.codex\\mcp\\deepseek\\runs\\phase6-modal-eb5a7968"
+}

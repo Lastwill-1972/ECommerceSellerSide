@@ -18,6 +18,7 @@ const router = createRouter({
         { path: 'catalog', name: 'merchant-catalog', component: { template: '<div />' } },
         { path: 'inventory', name: 'merchant-inventory', component: { template: '<div />' } },
         { path: 'owner-transfer', name: 'merchant-owner-transfer', component: { template: '<div />' } },
+        { path: 'audit', name: 'merchant-audit', component: { template: '<div />' } },
       ],
     },
     { path: '/login', name: 'login', component: { template: '<div>login</div>' } },

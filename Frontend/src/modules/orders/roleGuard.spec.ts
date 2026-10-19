@@ -98,6 +98,21 @@ describe('roleGuard', () => {
     expect(auth.loadCurrentUser).toHaveBeenCalled()
   })
 
+  it.each([
+    [MERCHANT_ADMIN, '/merchant/audit'],
+    [SHOP_OWNER, '/shop/audit'],
+  ] as const)('allows %s to its audit page %s', async (role, path) => {
+    setupAuth(auth, role)
+    await expectAllowed(path)
+    expect(auth.loadCurrentUser).toHaveBeenCalled()
+  })
+
+  it.each([NONE, SHOP_EMPLOYEE, PLATFORM_ADMIN] as const)('rejects %s from both audit areas', async (role) => {
+    setupAuth(auth, role)
+    await expectForbidden('/merchant/audit')
+    await expectForbidden('/shop/audit')
+  })
+
   it('forbids employee when shop_id or merchant_id is null', async () => {
     setupAuth(auth, SHOP_EMPLOYEE, { merchant_id: '10', shop_id: null })
     await expectForbidden('/employee/orders')

@@ -1,0 +1,66 @@
+{
+  "database_removed": true,
+  "restricted_account_removed": true,
+  "targeted_pytest_databases_removed": true,
+  "ports_closed": [
+    6179,
+    8018,
+    8019,
+    8020
+  ],
+  "browser_contexts_closed": true,
+  "proxy_retries": [
+    {
+      "path": "/api/v1/inventory/operations",
+      "key": "fa4863ee-73bc-431c-90cc-56c9c61dd490",
+      "calls": 2,
+      "returned_statuses": [
+        503,
+        200
+      ],
+      "backend_statuses": [
+        200,
+        200
+      ],
+      "same_parameters": true
+    },
+    {
+      "path": "/api/v1/inventory/operations",
+      "key": "1c6f7160-7f9e-4f5c-bb70-74dbc18b1e71",
+      "calls": 2,
+      "returned_statuses": [
+        503,
+        200
+      ],
+      "backend_statuses": [
+        200,
+        200
+      ],
+      "same_parameters": true
+    },
+    {
+      "path": "/api/v1/orders",
+      "key": "2cfea551-6aa6-4c9b-a299-99a3cc28b8c1",
+      "calls": 2,
+      "returned_statuses": [
+        503,
+        201
+      ],
+      "backend_statuses": [
+        201,
+        201
+      ],
+      "same_parameters": true
+    }
+  ],
+  "additional_modal_database_removed": true,
+  "additional_modal_account_removed": true,
+  "ports_rechecked_after_modal": [
+    6179,
+    8018,
+    8019,
+    8020
+  ],
+  "latest_modal_database_removed": true,
+  "latest_modal_account_removed": true
+}

@@ -1,0 +1,101 @@
+name: ecommerce-saas-prod
+
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    command:
+      - --default-time-zone=+08:00
+      - --skip-name-resolve
+    environment:
+      TZ: "Asia/Shanghai"
+      MYSQL_DATABASE: "${MYSQL_DATABASE:?MYSQL_DATABASE is required}"
+      MIGRATION_DB_USER: "${MIGRATION_DB_USER:?MIGRATION_DB_USER is required}"
+      MIGRATION_DB_PASSWORD: "${MIGRATION_DB_PASSWORD:?MIGRATION_DB_PASSWORD is required}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD is required}"
+      APP_DB_USER: "${APP_DB_USER:?APP_DB_USER is required}"
+      APP_DB_PASSWORD: "${APP_DB_PASSWORD:?APP_DB_PASSWORD is required}"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql-init.sh:/docker-entrypoint-initdb.d/10-app-user.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$MIGRATION_DB_PASSWORD\" mysql --protocol=TCP -h127.0.0.1 -u\"$$MIGRATION_DB_USER\" \"$$MYSQL_DATABASE\" -Nse 'SELECT 1' >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+    networks:
+      - internal
+
+  migrate:
+    build:
+      context: ../backend
+    image: ecommerce-saas-backend:prod
+    restart: "no"
+    environment:
+      TZ: "Asia/Shanghai"
+      APP_ENV: "production"
+      DB_HOST: "mysql"
+      DB_PORT: "3306"
+      DB_NAME: "${MYSQL_DATABASE:?MYSQL_DATABASE is required}"
+      DB_USER: "${MIGRATION_DB_USER:?MIGRATION_DB_USER is required}"
+      DB_PASSWORD: "${MIGRATION_DB_PASSWORD:?MIGRATION_DB_PASSWORD is required}"
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - internal
+
+  backend:
+    image: ecommerce-saas-backend:prod
+    restart: unless-stopped
+    environment:
+      TZ: "Asia/Shanghai"
+      APP_ENV: "production"
+      DB_HOST: "mysql"
+      DB_PORT: "3306"
+      DB_NAME: "${MYSQL_DATABASE:?MYSQL_DATABASE is required}"
+      DB_USER: "${APP_DB_USER:?APP_DB_USER is required}"
+      DB_PASSWORD: "${APP_DB_PASSWORD:?APP_DB_PASSWORD is required}"
+      AUTH_JWT_SECRET: "${AUTH_JWT_SECRET:?AUTH_JWT_SECRET is required}"
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers", "--forwarded-allow-ips", "*"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=3).status == 200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - internal
+
+  nginx:
+    build:
+      context: ../Frontend
+    image: ecommerce-saas-frontend:prod
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/api/v1/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  mysql-data:
+

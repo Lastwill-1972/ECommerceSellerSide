@@ -1,0 +1,252 @@
+{
+  "initial_js_kb": 428.99,
+  "initial_js_assets": [
+    "/assets/index-dYObDLG-.js",
+    "/assets/store-DvaSEZ-v.js",
+    "/assets/runtime-dom.esm-bundler-PQRdgeAC.js",
+    "/assets/icon-BIhbB4SK.js",
+    "/assets/focus-trap-D7rgsf7B.js",
+    "/assets/dist-BQXMtZHV.js",
+    "/assets/use-form-item-DA8fJkDg.js",
+    "/assets/scrollbar-DI2hXQ0t.js",
+    "/assets/use-global-config-CDC8TE2y.js",
+    "/assets/vnode-U4O4Qm82.js"
+  ],
+  "assets": [
+    {
+      "name": "api-6qbfV1af.js",
+      "kb": 5.59,
+      "gzip_kb": 2.23
+    },
+    {
+      "name": "api-CTo76Xlg.js",
+      "kb": 2.92,
+      "gzip_kb": 1.03
+    },
+    {
+      "name": "api-KocujXqY.js",
+      "kb": 3.03,
+      "gzip_kb": 1.15
+    },
+    {
+      "name": "ApplicationsPage-BeI1HKS_.js",
+      "kb": 6.85,
+      "gzip_kb": 2.89
+    },
+    {
+      "name": "AuditPage-BKARSfWW.css",
+      "kb": 0.67,
+      "gzip_kb": 0.29
+    },
+    {
+      "name": "AuditPage-Cr1w6Ym9.js",
+      "kb": 6.83,
+      "gzip_kb": 3.01
+    },
+    {
+      "name": "catalogApi-DuPX7Xb6.js",
+      "kb": 3.04,
+      "gzip_kb": 1.14
+    },
+    {
+      "name": "checkbox-ChFy_PCH.js",
+      "kb": 9.86,
+      "gzip_kb": 3.7
+    },
+    {
+      "name": "dialog-qhSIihvE.js",
+      "kb": 8.9,
+      "gzip_kb": 3.5
+    },
+    {
+      "name": "dist-BQXMtZHV.js",
+      "kb": 3.16,
+      "gzip_kb": 1.43
+    },
+    {
+      "name": "EmployeeHomePage-C_q7X3VX.js",
+      "kb": 3.21,
+      "gzip_kb": 1.6
+    },
+    {
+      "name": "focus-trap-D7rgsf7B.js",
+      "kb": 5.81,
+      "gzip_kb": 2.47
+    },
+    {
+      "name": "icon-BIhbB4SK.js",
+      "kb": 45.07,
+      "gzip_kb": 15.58
+    },
+    {
+      "name": "index-BZF-ceqk.css",
+      "kb": 149.12,
+      "gzip_kb": 23.34
+    },
+    {
+      "name": "index-dYObDLG-.js",
+      "kb": 152.91,
+      "gzip_kb": 51.06
+    },
+    {
+      "name": "inventoryApi-DcIRL97u.js",
+      "kb": 2.82,
+      "gzip_kb": 1.08
+    },
+    {
+      "name": "MerchantApplicationsPage-K1hS3ATb.js",
+      "kb": 8.2,
+      "gzip_kb": 3.44
+    },
+    {
+      "name": "MerchantCatalogPage-COW7YRnH.js",
+      "kb": 16.28,
+      "gzip_kb": 4.9
+    },
+    {
+      "name": "MerchantFramePage-CHnyyPdw.js",
+      "kb": 0.42,
+      "gzip_kb": 0.32
+    },
+    {
+      "name": "MerchantHomePage-Dp0kV39B.js",
+      "kb": 1.49,
+      "gzip_kb": 0.82
+    },
+    {
+      "name": "MerchantInventoryPage-pqra5Gm3.js",
+      "kb": 13.47,
+      "gzip_kb": 5.0
+    },
+    {
+      "name": "MerchantOrderDetailPage-BNPo_xJ8.js",
+      "kb": 3.25,
+      "gzip_kb": 1.55
+    },
+    {
+      "name": "MerchantOrdersPage-680RzLnX.js",
+      "kb": 4.51,
+      "gzip_kb": 2.13
+    },
+    {
+      "name": "MerchantProfilePage-BbKnvM0A.js",
+      "kb": 2.29,
+      "gzip_kb": 1.34
+    },
+    {
+      "name": "MerchantShopsPage-49fI8Nal.js",
+      "kb": 2.74,
+      "gzip_kb": 1.36
+    },
+    {
+      "name": "message-box-DaPfcX-O.js",
+      "kb": 11.36,
+      "gzip_kb": 4.25
+    },
+    {
+      "name": "OrderCreatePage-BLVhm9Sv.js",
+      "kb": 21.35,
+      "gzip_kb": 7.13
+    },
+    {
+      "name": "OrderCreatePage-BVlEsd85.css",
+      "kb": 1.03,
+      "gzip_kb": 0.47
+    },
+    {
+      "name": "OrderDetailPage-CoMRwZWY.js",
+      "kb": 11.36,
+      "gzip_kb": 4.04
+    },
+    {
+      "name": "OrderListPage-CgVdZGyB.js",
+      "kb": 4.23,
+      "gzip_kb": 1.99
+    },
+    {
+      "name": "overlay-CsueMu_9.js",
+      "kb": 3.0,
+      "gzip_kb": 1.36
+    },
+    {
+      "name": "OwnerTransferPage-DMGBezmH.js",
+      "kb": 8.15,
+      "gzip_kb": 3.53
+    },
+    {
+      "name": "PageButtons-eVtALQse.js",
+      "kb": 0.88,
+      "gzip_kb": 0.5
+    },
+    {
+      "name": "RoleFrame-JB_YCdrS.js",
+      "kb": 0.49,
+      "gzip_kb": 0.35
+    },
+    {
+      "name": "runtime-dom.esm-bundler-PQRdgeAC.js",
+      "kb": 16.32,
+      "gzip_kb": 6.89
+    },
+    {
+      "name": "scroll-DLJQMhGb.js",
+      "kb": 1.52,
+      "gzip_kb": 0.81
+    },
+    {
+      "name": "scrollbar-DI2hXQ0t.js",
+      "kb": 46.45,
+      "gzip_kb": 16.27
+    },
+    {
+      "name": "select-DQ2I6Kbz.js",
+      "kb": 33.62,
+      "gzip_kb": 11.49
+    },
+    {
+      "name": "ShopPeoplePage-BtQmw6a3.js",
+      "kb": 9.84,
+      "gzip_kb": 3.58
+    },
+    {
+      "name": "ShopReadPage-bBBCAf4B.js",
+      "kb": 11.61,
+      "gzip_kb": 3.89
+    },
+    {
+      "name": "store-DvaSEZ-v.js",
+      "kb": 153.22,
+      "gzip_kb": 58.81
+    },
+    {
+      "name": "table-DzO_habH.js",
+      "kb": 94.54,
+      "gzip_kb": 31.53
+    },
+    {
+      "name": "use-form-item-DA8fJkDg.js",
+      "kb": 4.38,
+      "gzip_kb": 2.05
+    },
+    {
+      "name": "use-global-config-CDC8TE2y.js",
+      "kb": 1.32,
+      "gzip_kb": 0.7
+    },
+    {
+      "name": "useIdentityScope-BTescn3J.js",
+      "kb": 0.9,
+      "gzip_kb": 0.62
+    },
+    {
+      "name": "useMerchantScope-1mAvacPV.js",
+      "kb": 0.79,
+      "gzip_kb": 0.56
+    },
+    {
+      "name": "vnode-U4O4Qm82.js",
+      "kb": 0.36,
+      "gzip_kb": 0.24
+    }
+  ]
+}

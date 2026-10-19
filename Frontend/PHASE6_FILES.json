@@ -1,0 +1,444 @@
+{
+  "modified": [
+    ".gitignore",
+    "Frontend/README.md",
+    "Frontend/src/app/router.ts",
+    "Frontend/src/main.ts",
+    "Frontend/src/modules/merchant/pages/MerchantOrdersPage.spec.ts",
+    "Frontend/src/modules/orders/EmployeeRead.spec.ts",
+    "Frontend/src/modules/orders/OrderCreatePage.vue",
+    "Frontend/src/modules/orders/roleGuard.spec.ts",
+    "Frontend/src/modules/workspace/pages/workspace.spec.ts",
+    "Frontend/src/shared/http/errors.ts",
+    "Frontend/src/shared/layout/AppShell.spec.ts",
+    "Frontend/src/shared/layout/AppShell.vue",
+    "Frontend/src/styles/main.css",
+    "backend/README.md",
+    "backend/app/services/orders.py",
+    "backend/tests/test_orders.py"
+  ],
+  "new": [
+    ".gitattributes",
+    "Frontend/.dockerignore",
+    "Frontend/Dockerfile",
+    "Frontend/PHASE6_ACCEPTANCE.json",
+    "Frontend/PHASE6_BACKEND_FINAL.json",
+    "Frontend/PHASE6_BACKEND_INITIAL.json",
+    "Frontend/PHASE6_BACKEND_PY312.json",
+    "Frontend/PHASE6_BASELINE.json",
+    "Frontend/PHASE6_BOOTSTRAP_STATIC.json",
+    "Frontend/PHASE6_BROWSER.json",
+    "Frontend/PHASE6_BROWSER_EXTRA.json",
+    "Frontend/PHASE6_BUNDLE.json",
+    "Frontend/PHASE6_CLEANUP.json",
+    "Frontend/PHASE6_DATABASE_PROOF.json",
+    "Frontend/PHASE6_DEPLOYMENT_STATIC.json",
+    "Frontend/PHASE6_FILES.json",
+    "Frontend/PHASE6_FRONTEND.json",
+    "Frontend/PHASE6_HANDOFF.md",
+    "Frontend/PHASE6_HTTP_RESULTS.json",
+    "Frontend/PHASE6_IDENTITY_BROWSER.json",
+    "Frontend/PHASE6_MINIMUM_PRIVILEGES.json",
+    "Frontend/PHASE6_MODAL_FIXTURE.json",
+    "Frontend/PHASE6_MODAL_HTTP_RESULTS.json",
+    "Frontend/PHASE6_MODAL_VERIFICATION.json",
+    "Frontend/PHASE6_OPENAPI.json",
+    "Frontend/PHASE6_QUERY_AFTER.json",
+    "Frontend/PHASE6_QUERY_BEFORE.json",
+    "Frontend/PHASE6_SCHEMA.json",
+    "Frontend/PHASE6_TEST_FIXTURE.json",
+    "Frontend/PHASE6_VERIFICATION.json",
+    "Frontend/docs/phase6/employee-create-390.png",
+    "Frontend/docs/phase6/identity-change-stale-response.png",
+    "Frontend/docs/phase6/inventory-retry-mobile.png",
+    "Frontend/docs/phase6/inventory-unknown-mobile.png",
+    "Frontend/docs/phase6/login-expired-mobile.png",
+    "Frontend/docs/phase6/login-mobile.png",
+    "Frontend/docs/phase6/long-sku-price-mobile.png",
+    "Frontend/docs/phase6/merchant-audit-1440.png",
+    "Frontend/docs/phase6/merchant-audit-390.png",
+    "Frontend/docs/phase6/none-applications-390.png",
+    "Frontend/docs/phase6/order-record-lost-mobile.png",
+    "Frontend/docs/phase6/order-retry-desktop.png",
+    "Frontend/docs/phase6/order-unknown-mobile.png",
+    "Frontend/docs/phase6/owner-audit-1440.png",
+    "Frontend/docs/phase6/owner-audit-390.png",
+    "Frontend/docs/phase6/owner-create-390.png",
+    "Frontend/docs/phase6/register-mobile.png",
+    "Frontend/docs/phase6/warehouse-approve-dialog-mobile.png",
+    "Frontend/docs/phase6/warehouse-not-authorized-mobile.png",
+    "Frontend/docs/phase6/warehouse-reject-dialog-mobile.png",
+    "Frontend/nginx.conf",
+    "Frontend/qa/phase6_browser.py",
+    "Frontend/qa/phase6_browser_extra.py",
+    "Frontend/qa/phase6_checks.py",
+    "Frontend/qa/phase6_env.py",
+    "Frontend/qa/phase6_identity_browser.py",
+    "Frontend/qa/phase6_modal_browser.py",
+    "Frontend/qa/phase6_modal_env.py",
+    "Frontend/src/modules/audit/AuditPage.spec.ts",
+    "Frontend/src/modules/audit/AuditPage.vue",
+    "Frontend/src/modules/audit/api.spec.ts",
+    "Frontend/src/modules/audit/api.ts",
+    "Frontend/src/styles/element-plus.ts",
+    "README.md",
+    "backend/.dockerignore",
+    "backend/Dockerfile",
+    "deploy/.env.example",
+    "deploy/.gitignore",
+    "deploy/README.md",
+    "deploy/compose.yaml",
+    "deploy/mysql-init.sh",
+    "docs/ACCEPTANCE.md"
+  ],
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "0ae978727cc3591f3003bd32329a1cdc9c749a24eba30d1a96e6f778e728e0b6"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "ca4622b7d38076d43ef75ed6de47a02d47fde2b8207615908e28b33fd5fa665c"
+    },
+    {
+      "path": "Frontend/.dockerignore",
+      "sha256": "bbce37e1b565c2bc47672c9ed594a5fbee33cf2d37f128fabbc4293e6f42fc3d"
+    },
+    {
+      "path": "Frontend/Dockerfile",
+      "sha256": "73a928c93da79d1b38192cbabc1c3ea16164e09c06fa18cbf2675ee964ce9ccc"
+    },
+    {
+      "path": "Frontend/PHASE6_ACCEPTANCE.json",
+      "sha256": "ea8807569dbfc1fd43b4c104642497f6d3ab1c4cf9158b61fcb4a3cdb5edad67"
+    },
+    {
+      "path": "Frontend/PHASE6_BACKEND_FINAL.json",
+      "sha256": "6c8612a456712fb228c4abf46594a7ec9a5dbfe40a581a7638ebb807341e3449"
+    },
+    {
+      "path": "Frontend/PHASE6_BACKEND_INITIAL.json",
+      "sha256": "4b40c6182eb07a5d9c5cac4b4565e4d77b31bd12f83b286300dd620e83da5cd0"
+    },
+    {
+      "path": "Frontend/PHASE6_BACKEND_PY312.json",
+      "sha256": "4ff5e37cdd9734d26105337ad198a40c437a9af00e9a017f739e6a4a62c69704"
+    },
+    {
+      "path": "Frontend/PHASE6_BASELINE.json",
+      "sha256": "6b5d0b896f0cdb5178e4601f8318b16f05e532d9786cc81f2475c0019808b681"
+    },
+    {
+      "path": "Frontend/PHASE6_BOOTSTRAP_STATIC.json",
+      "sha256": "50e9fd5582dd128af129980f403d2bc103bc887c2f17bf6ce21dd402d1426587"
+    },
+    {
+      "path": "Frontend/PHASE6_BROWSER.json",
+      "sha256": "18f22f8a36164be6829b79dfaf6576588d4eabf8d692cc8f573ff3f9cde86121"
+    },
+    {
+      "path": "Frontend/PHASE6_BROWSER_EXTRA.json",
+      "sha256": "ed4f0aaf51daa2f3bcd194df2d97aff414250181ce921bb4c0a2bfa86891b2df"
+    },
+    {
+      "path": "Frontend/PHASE6_BUNDLE.json",
+      "sha256": "eabe9b16793e51a15ffd7adf9c6cacf6cc390df24383334b084b95091f68db81"
+    },
+    {
+      "path": "Frontend/PHASE6_CLEANUP.json",
+      "sha256": "9bf95e647f4143096e0f762e7b3a854d69c3ab9ff81fa66c520849c7b2325614"
+    },
+    {
+      "path": "Frontend/PHASE6_DATABASE_PROOF.json",
+      "sha256": "7272105bcec084840054ea99a78911fb298d2b81efdce015d6d091e2ab687053"
+    },
+    {
+      "path": "Frontend/PHASE6_DEPLOYMENT_STATIC.json",
+      "sha256": "4efdbc73fdb382ff8971d1ee49dd37bde7fe165d897f5f2dc36248c343880429"
+    },
+    {
+      "path": "Frontend/PHASE6_FRONTEND.json",
+      "sha256": "320b9991077719e0b39b4e5da5ef893ff97dd05ec440d28d7ed845df5708320a"
+    },
+    {
+      "path": "Frontend/PHASE6_HANDOFF.md",
+      "sha256": "95342c4d9562ca77b1f0c75ef312596c1cc6e20b55ad96c0789f9549d0a12fa8"
+    },
+    {
+      "path": "Frontend/PHASE6_HTTP_RESULTS.json",
+      "sha256": "3ccd31dbe3ffb86c686d5a3570b1c2418df3fdb02ddc4eaede707d23f5257a44"
+    },
+    {
+      "path": "Frontend/PHASE6_IDENTITY_BROWSER.json",
+      "sha256": "ccf96b058d8f5c660a681b1064883e98821ff36b2416b03ef4416cd6e91599cf"
+    },
+    {
+      "path": "Frontend/PHASE6_MINIMUM_PRIVILEGES.json",
+      "sha256": "1f4b9cb3347f57483a45d51cffd6fd7fa9227e491b310720cb491c5599164171"
+    },
+    {
+      "path": "Frontend/PHASE6_MODAL_FIXTURE.json",
+      "sha256": "c84341cff9faf057cb9b63ca5feebfa4e6d8b28f81c6621c42c09722a86498c9"
+    },
+    {
+      "path": "Frontend/PHASE6_MODAL_HTTP_RESULTS.json",
+      "sha256": "9d9701f836b77aebc217abb0e12837a79d32b6cca719e5ec0afc106fc2d11b25"
+    },
+    {
+      "path": "Frontend/PHASE6_MODAL_VERIFICATION.json",
+      "sha256": "a60b9251ecd52cf05f44370ba49739fefbdde7ad8d26457461860a010a98d247"
+    },
+    {
+      "path": "Frontend/PHASE6_OPENAPI.json",
+      "sha256": "7a9f4a4f2df742831f7eecd2899b83018e945d177f76712a68f04116eb750e4b"
+    },
+    {
+      "path": "Frontend/PHASE6_QUERY_AFTER.json",
+      "sha256": "8d502056110067574f371acd1f46bfb0dd34274d5fbf97dbcd4dac9413809c52"
+    },
+    {
+      "path": "Frontend/PHASE6_QUERY_BEFORE.json",
+      "sha256": "8eece9826f5e00db31769bc699703f664df7877f87795fc1798a332247ee7a4c"
+    },
+    {
+      "path": "Frontend/PHASE6_SCHEMA.json",
+      "sha256": "2b3e960abdfe32fdd5fe2156b3ec6c85d77f448b0056fd2fd1ec730e65d5d782"
+    },
+    {
+      "path": "Frontend/PHASE6_TEST_FIXTURE.json",
+      "sha256": "2ed8f041f99514cff6288719360955d40964a8980f5abaeda4fb935b60cbd3af"
+    },
+    {
+      "path": "Frontend/PHASE6_VERIFICATION.json",
+      "sha256": "5db64031889c70f423627f21da86947c9200dd98131af7ee7942ba0cd4614e43"
+    },
+    {
+      "path": "Frontend/README.md",
+      "sha256": "ed54e9aa07cbcd90ce1ac1d66d1f6cf7851ec52e39b136b396f75c99019f3e7e"
+    },
+    {
+      "path": "Frontend/docs/phase6/employee-create-390.png",
+      "sha256": "42ab5f344ba86df5f84fb0d31bdd3f544e87a94d1d1463d31f590157cf627bc0"
+    },
+    {
+      "path": "Frontend/docs/phase6/identity-change-stale-response.png",
+      "sha256": "0301ddc2520a3e533c69b9196397f876646ff5d0292d85f5222051f624c3e109"
+    },
+    {
+      "path": "Frontend/docs/phase6/inventory-retry-mobile.png",
+      "sha256": "28128c3fef8298b365d6b650f663ab4bd47348126871dc0aa4b13dbc786d4977"
+    },
+    {
+      "path": "Frontend/docs/phase6/inventory-unknown-mobile.png",
+      "sha256": "eeaa4cef4934f97cea38dba4f585da28657d6234415f6407643340d23204ab69"
+    },
+    {
+      "path": "Frontend/docs/phase6/login-expired-mobile.png",
+      "sha256": "e410d19a2e6eb931170894138301be26fca4ba6da2d1acf6bd98ec1df7554408"
+    },
+    {
+      "path": "Frontend/docs/phase6/login-mobile.png",
+      "sha256": "129dac277ecc3f468141369da944c0f5d24dabba551d64227eaac1fe2fb38248"
+    },
+    {
+      "path": "Frontend/docs/phase6/long-sku-price-mobile.png",
+      "sha256": "d9f64b6d943f6702d0c78f703aef7ff8a0b63d6ab4d0c4c1beeaafad171dbe6f"
+    },
+    {
+      "path": "Frontend/docs/phase6/merchant-audit-1440.png",
+      "sha256": "6196acb99f6ae38cb7fc8a376d5214cb5183d9f4e80e35eb0da928cf322c0bcc"
+    },
+    {
+      "path": "Frontend/docs/phase6/merchant-audit-390.png",
+      "sha256": "eb4094beb384509949bf58904c192074a5c0c13ac7450e7a28db1205fc9f81bc"
+    },
+    {
+      "path": "Frontend/docs/phase6/none-applications-390.png",
+      "sha256": "1d6a9d477a40dfe12dbd38d5f8c7bb13f760d6575566fce497a0b4b63a7577de"
+    },
+    {
+      "path": "Frontend/docs/phase6/order-record-lost-mobile.png",
+      "sha256": "42ab5f344ba86df5f84fb0d31bdd3f544e87a94d1d1463d31f590157cf627bc0"
+    },
+    {
+      "path": "Frontend/docs/phase6/order-retry-desktop.png",
+      "sha256": "9d142ab1b782fc01f075db52af316eea20499ff6fad08b7114ff447276a67173"
+    },
+    {
+      "path": "Frontend/docs/phase6/order-unknown-mobile.png",
+      "sha256": "e305fd847d547b5ba51d36fe0a7623698caeec328a04058ce35f594258ecf1e2"
+    },
+    {
+      "path": "Frontend/docs/phase6/owner-audit-1440.png",
+      "sha256": "d4bd4718df054fbff5809f7e8d0529e520f07eb7a26c99ec2128f52a6f1db4bf"
+    },
+    {
+      "path": "Frontend/docs/phase6/owner-audit-390.png",
+      "sha256": "000456be3ca845bdeace93306d61cbec5ea0a5b0ac8c2629bafc301b3118b08d"
+    },
+    {
+      "path": "Frontend/docs/phase6/owner-create-390.png",
+      "sha256": "267df640416f798fe9b62cd27735ed7d9f5cef184a96fb2df16a3bac57ab67e9"
+    },
+    {
+      "path": "Frontend/docs/phase6/register-mobile.png",
+      "sha256": "8d46a8440310eb2b93ebb88b00f687a27dc8bbdab09998d4163eb5799ea7a7c5"
+    },
+    {
+      "path": "Frontend/docs/phase6/warehouse-approve-dialog-mobile.png",
+      "sha256": "941f6b53dc0186eab17b6baace8052c76cebb077fd2c2a042c3a45f30ac0d0ab"
+    },
+    {
+      "path": "Frontend/docs/phase6/warehouse-not-authorized-mobile.png",
+      "sha256": "a686f5005802bae1876aa9e2bf63ead8d53c83c49cfda26bd42c5c9c20aacfb6"
+    },
+    {
+      "path": "Frontend/docs/phase6/warehouse-reject-dialog-mobile.png",
+      "sha256": "ada6827c303bfc8933973a38eb3cc1b9460a7189811963fb90e98638c48183bd"
+    },
+    {
+      "path": "Frontend/nginx.conf",
+      "sha256": "c720adfdbb2487ec9fa58830dc0b5577659d3d0b273ebd10415675b04d216d93"
+    },
+    {
+      "path": "Frontend/qa/phase6_browser.py",
+      "sha256": "1433c0304a6a4661f5d94c68ab098a9b60be08de558be50fa31bcec36e295142"
+    },
+    {
+      "path": "Frontend/qa/phase6_browser_extra.py",
+      "sha256": "f5a01cb14f000770a26a70f9c4f8bf99211ba20900a7148539cdfa532843086f"
+    },
+    {
+      "path": "Frontend/qa/phase6_checks.py",
+      "sha256": "34b26d4f0abe14ea4e2e0513f606f1975aae27fe94f72a02a4e1ea7c1cea1ba7"
+    },
+    {
+      "path": "Frontend/qa/phase6_env.py",
+      "sha256": "fcf1cad4b6d4af63b5fbb67543de78c9f8fda6f70fb68a7ef371b6720f457082"
+    },
+    {
+      "path": "Frontend/qa/phase6_identity_browser.py",
+      "sha256": "e468517c72a77725097fee7b91e68959161a13298c877a95f7b546f942c449c5"
+    },
+    {
+      "path": "Frontend/qa/phase6_modal_browser.py",
+      "sha256": "8b70d80059680cd003c30210e5a05982d4d1f590ea2214117f8768182adc6b52"
+    },
+    {
+      "path": "Frontend/qa/phase6_modal_env.py",
+      "sha256": "ca9877df94e0a84405f1158cd5db572f01b96e7f27aaf5b84cc2d7f419ae52af"
+    },
+    {
+      "path": "Frontend/src/app/router.ts",
+      "sha256": "aa49b7cd42c0e2456d7933cde40cad9ae9a6df6436a33b765b4f1e8ec3323f73"
+    },
+    {
+      "path": "Frontend/src/main.ts",
+      "sha256": "631b75a0dba2dfc3e8b25d5d07b302ccfb0453c342466ef1feb8df990ab3b4de"
+    },
+    {
+      "path": "Frontend/src/modules/audit/AuditPage.spec.ts",
+      "sha256": "1a404eea53fb656279b0d0a1f83aff1fe224b6159339e5eafdad185c0cce5c93"
+    },
+    {
+      "path": "Frontend/src/modules/audit/AuditPage.vue",
+      "sha256": "627fdf82c7dcd9efdb404ffb2e2b9ff21367e0934bd99e6b0db5f834991eeb13"
+    },
+    {
+      "path": "Frontend/src/modules/audit/api.spec.ts",
+      "sha256": "385bb70b69d3b25addd84fabdd8be1e75316ff018f79fa4da181afef1e57c876"
+    },
+    {
+      "path": "Frontend/src/modules/audit/api.ts",
+      "sha256": "81fb1da1741a4bc13fda6b3af7dfd9c270755cc771ee53e8af088013186c7058"
+    },
+    {
+      "path": "Frontend/src/modules/merchant/pages/MerchantOrdersPage.spec.ts",
+      "sha256": "e08c2cc5918044f029a7b87d40d2cd388d0aa7cf2d53d79b706305e24ef39bf2"
+    },
+    {
+      "path": "Frontend/src/modules/orders/EmployeeRead.spec.ts",
+      "sha256": "10188e9dcd529ad8e215d8e5c0036424b4050a3d8347904a54f0a77d538a24d2"
+    },
+    {
+      "path": "Frontend/src/modules/orders/OrderCreatePage.vue",
+      "sha256": "b0e88c139f1de12cf49811dd54bd6c5f82c0bc49bb59b840f4a0a76a7c1070f5"
+    },
+    {
+      "path": "Frontend/src/modules/orders/roleGuard.spec.ts",
+      "sha256": "19a45de90309208b501eaf2ee6c827f9149bb4d17f3d42c107956015933e95a4"
+    },
+    {
+      "path": "Frontend/src/modules/workspace/pages/workspace.spec.ts",
+      "sha256": "57086a90c30d0e018f4f44bca5f0715d91919f7eb585884f1e2f03a4136af32e"
+    },
+    {
+      "path": "Frontend/src/shared/http/errors.ts",
+      "sha256": "38d545db86c4f2af88b70116666c56cab7479de10cac3b007952427449a8de32"
+    },
+    {
+      "path": "Frontend/src/shared/layout/AppShell.spec.ts",
+      "sha256": "dbc1a16d48b192bbde8d3e3bf0ce3b751eb558fe73feefbe7258d744c93e4d42"
+    },
+    {
+      "path": "Frontend/src/shared/layout/AppShell.vue",
+      "sha256": "1b278813541602f8b42793c3e73d85ded0e7bb8aa29ece4a0542a3dd7902053a"
+    },
+    {
+      "path": "Frontend/src/styles/element-plus.ts",
+      "sha256": "cdeb7b1b540432ef9b072b065d633e4e0b49397f662b555958fd91a928211310"
+    },
+    {
+      "path": "Frontend/src/styles/main.css",
+      "sha256": "d63a2e9cc7e4434f3af4279b40867258463063d1a3e072b02cb2d6c65918b6d3"
+    },
+    {
+      "path": "README.md",
+      "sha256": "9249f583bc11a246c6d77672227a21bc47a58d82eff8cd0fd51263815541fb5c"
+    },
+    {
+      "path": "backend/.dockerignore",
+      "sha256": "d12849a0438bd56c53c576d618e94d5f948c77bff2830d70276e079d681491e8"
+    },
+    {
+      "path": "backend/Dockerfile",
+      "sha256": "c8ede5d61bce6c1d04508675eb0f833f70c8eb2f23530a5dcf8a9bd06c2d5741"
+    },
+    {
+      "path": "backend/README.md",
+      "sha256": "89ea6602d4f838d526962800050ba3a9c7b950bb83804d87f30f4de890f6fb00"
+    },
+    {
+      "path": "backend/app/services/orders.py",
+      "sha256": "3a2a31d7336d5e43aaccb16fae14dc18c4dd8816ba20b78900d62963101c087a"
+    },
+    {
+      "path": "backend/tests/test_orders.py",
+      "sha256": "2f82fc995274e238923b5489a8f3d5a6b764eb19aa89566a3660cdb0d751f5f9"
+    },
+    {
+      "path": "deploy/.env.example",
+      "sha256": "4fcb77973aff1fb5486f9f27a12f5d4b084adbefb03031d00dd84e74432348ef"
+    },
+    {
+      "path": "deploy/.gitignore",
+      "sha256": "0a7ea06c8a5d843c0161065ac84a13211f66602fd62fde9cb6baaf8c9b732544"
+    },
+    {
+      "path": "deploy/README.md",
+      "sha256": "dfe2de77390b8cf6ab7235dcef8973fd644ed5adf643fe38dafd0101e03d8d28"
+    },
+    {
+      "path": "deploy/compose.yaml",
+      "sha256": "3ddbe125e297d7eb534e5791209bbac3d4725bf0fb6ab1556fbab5829c733c75"
+    },
+    {
+      "path": "deploy/mysql-init.sh",
+      "sha256": "4d37474bd5c04064be05299465b45518e5370ad92be7467cec71d686a5ad24a5"
+    },
+    {
+      "path": "docs/ACCEPTANCE.md",
+      "sha256": "729ab7dc611af7659e494719904daf7451307635632b5e2304a2ad8005d753a3"
+    }
+  ]
+}

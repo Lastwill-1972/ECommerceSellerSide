@@ -1,0 +1,15 @@
+{
+  "mode": "offline shell generation with fake mysql CLI; not database execution",
+  "cases": [
+    {
+      "partial_revokes": "0",
+      "generated_exact_schema_grants": true,
+      "single_quote_password_escape": true
+    },
+    {
+      "partial_revokes": "1",
+      "generated_exact_schema_grants": true,
+      "single_quote_password_escape": true
+    }
+  ]
+}

@@ -28,7 +28,7 @@ export function toApiError(error: unknown): ApiError {
   else if (status === 404) { message = '请求的内容不存在。'; code = 'not_found' }
   else if (status === 409) { message = '信息已存在或与当前状态冲突，请检查后重试。'; code = 'conflict' }
   else if (status === 422) { message = '请检查表单中标记的内容。'; code = 'validation' }
-  else if (status === 503) { message = '认证服务暂不可用，请稍后重试。'; code = 'unavailable' }
+  else if (status === 503) { message = '服务暂不可用，请稍后重试。'; code = 'unavailable' }
 
   const fields: FieldErrors = {}
   const detail = axiosError.response?.data?.detail

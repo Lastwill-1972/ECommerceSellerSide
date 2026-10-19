@@ -1,0 +1,7 @@
+{
+  "ddl_denied": true,
+  "login_identity_audit_and_order_inventory_crud": "passed",
+  "global_privileges_granted": false,
+  "scope": "one owned disposable database only",
+  "temporary_account_removed": true
+}

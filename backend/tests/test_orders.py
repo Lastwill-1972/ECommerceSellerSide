@@ -535,3 +535,39 @@ def test_order_write_atomicity_and_independent_audit_failure(auth_client, caplog
     assert result.status == "PENDING" and _stock(factory, sku_id) == 3
     assert "audit write failed event_type=order_created" in caplog.text and "RuntimeError" in caplog.text
 
+
+
+def test_list_orders_constant_queries_and_snapshot_prices(auth_client):
+    from sqlalchemy import event
+    from app.services.orders import OrderService
+    from app.services.identity import IdentityService
+
+    client, factory = auth_client
+    admin_id, admin_headers = _account(client, 'list-perf-admin')
+    owner_id, owner_headers = _account(client, 'list-perf-owner')
+    merchant_id, warehouse_id = _merchant(factory, admin_id, 'list-perf')
+    _shop(factory, merchant_id, owner_id, warehouse_id, admin_id)
+    _, sku_id, _ = _product(client, factory, admin_headers)
+    stocked = client.post('/api/v1/inventory/operations', headers={**admin_headers, 'Idempotency-Key': secrets.token_hex(16)}, json={'sku_id': sku_id, 'delta': 100})
+    assert stocked.status_code == 200, stocked.text
+    for _ in range(20):
+        created = client.post('/api/v1/orders', headers={**owner_headers, 'Idempotency-Key': secrets.token_hex(16)}, json={'items': [{'sku_id': sku_id, 'quantity': 1}]})
+        assert created.status_code == 201, created.text
+    changed = client.patch(f'/api/v1/catalog/skus/{sku_id}', headers=admin_headers, json={'price': '25.00'})
+    assert changed.status_code == 200, changed.text
+    with factory() as session:
+        identity = IdentityService.get_identity(session, session.get(User, admin_id))
+        statements = []
+        def count(_conn, _cursor, statement, _parameters, _context, _many):
+            if statement.lstrip().upper().startswith('SELECT'):
+                statements.append(statement)
+        engine = session.get_bind()
+        event.listen(engine, 'before_cursor_execute', count)
+        try:
+            result = OrderService.list_orders(session, identity=identity, shop_id=None, status_filter=None, limit=20, offset=0)
+        finally:
+            event.remove(engine, 'before_cursor_execute', count)
+        assert len(statements) == 3
+        assert result.total == 20 and len(result.items) == 20
+        assert all(len(order.items) == 1 and order.items[0].unit_price == Decimal('10.00') for order in result.items)
+        assert sum((order.total_amount for order in result.items), Decimal('0.00')) == Decimal('200.00')

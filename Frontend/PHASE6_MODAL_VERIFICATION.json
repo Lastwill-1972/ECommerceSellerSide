@@ -1,0 +1,23 @@
+{
+  "warehouse_dialog_box": {
+    "x": 15.59375,
+    "y": 126.59375,
+    "width": 358.796875,
+    "height": 248.6875
+  },
+  "warehouse_approval": "passed: real access granted",
+  "rejection_dialog_box": {
+    "x": 15.59375,
+    "y": 126.59375,
+    "width": 358.796875,
+    "height": 315.0625
+  },
+  "rejection": "passed: required reason and actual reject response",
+  "long_dialog_box": {
+    "x": 16,
+    "y": 126.59375,
+    "width": 358,
+    "height": 846.59375
+  },
+  "long_dialog_opacity": "1"
+}

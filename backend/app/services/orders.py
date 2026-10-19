@@ -48,10 +48,11 @@ def _end_read(session: Session) -> None:
         session.rollback()
 
 
-def _order_response(session: Session, order: Order) -> OrderResponse:
-    rows = session.scalars(
-        select(OrderItem).where(OrderItem.order_id == order.id).order_by(OrderItem.id)
-    ).all()
+def _order_response(session: Session, order: Order, rows: list[OrderItem] | None = None) -> OrderResponse:
+    if rows is None:
+        rows = session.scalars(
+            select(OrderItem).where(OrderItem.order_id == order.id).order_by(OrderItem.id)
+        ).all()
     return OrderResponse(
         id=order.id, merchant_id=order.merchant_id, shop_id=order.shop_id,
         created_by_user_id=order.created_by_user_id, status=order.status,
@@ -308,7 +309,15 @@ class OrderService:
         rows = session.scalars(select(Order).where(*conditions)
                                .order_by(Order.created_at.desc(), Order.id.desc())
                                .limit(limit).offset(offset)).all()
-        return OrderPage(items=[_order_response(session, row) for row in rows],
+        items_by_order: dict[int, list[OrderItem]] = {}
+        if rows:
+            item_rows = session.scalars(
+                select(OrderItem).where(OrderItem.order_id.in_([row.id for row in rows]))
+                .order_by(OrderItem.order_id, OrderItem.id)
+            ).all()
+            for item in item_rows:
+                items_by_order.setdefault(item.order_id, []).append(item)
+        return OrderPage(items=[_order_response(session, row, items_by_order.get(row.id, [])) for row in rows],
                          limit=limit, offset=offset, total=total)
 
     @staticmethod

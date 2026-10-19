@@ -777,15 +777,17 @@ function pendingStateText(state: PendingOrder['state'] | undefined): string {
           <dt>幂等键</dt><dd class="mono">{{ pending.key }}</dd>
           <dt>创建时间</dt><dd>{{ pending.created_at }}</dd>
         </dl>
-        <table class="merchant-table">
-          <thead><tr><th>SKU 编号</th><th>数量</th></tr></thead>
-          <tbody>
-            <tr v-for="item in pending.items" :key="item.sku_id">
-              <td class="mono">{{ item.sku_id }}</td>
-              <td>{{ item.quantity }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="merchant-table">
+            <thead><tr><th>SKU 编号</th><th>数量</th></tr></thead>
+            <tbody>
+              <tr v-for="item in pending.items" :key="item.sku_id">
+                <td class="mono">{{ item.sku_id }}</td>
+                <td>{{ item.quantity }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div class="actions">
           <el-button type="primary" :loading="submitting" :disabled="submitting" @click="retryOriginal">
             按原请求重试
@@ -804,38 +806,42 @@ function pendingStateText(state: PendingOrder['state'] | undefined): string {
           <el-button :disabled="listLoading || listOffset + PAGE_SIZE >= listTotal" @click="nextPage">下一页</el-button>
         </div>
         <p v-if="listError" class="workspace-error">{{ listError }}</p>
-        <table class="merchant-table">
-          <thead><tr><th>商品</th><th>状态</th><th>更新时间</th><th>操作</th></tr></thead>
-          <tbody>
-            <tr v-for="spu in spus" :key="spu.id">
-              <td>{{ spu.name }}</td>
-              <td>{{ spu.status }}</td>
-              <td>{{ spu.updated_at }}</td>
-              <td>
-                <el-button size="small" :disabled="detailLoading" @click="openSpu(spu)">查看 SKU</el-button>
-              </td>
-            </tr>
-            <tr v-if="spus.length === 0"><td colspan="4">暂无可选在售商品。</td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="merchant-table">
+            <thead><tr><th>商品</th><th>状态</th><th>更新时间</th><th>操作</th></tr></thead>
+            <tbody>
+              <tr v-for="spu in spus" :key="spu.id">
+                <td>{{ spu.name }}</td>
+                <td>{{ spu.status }}</td>
+                <td>{{ spu.updated_at }}</td>
+                <td>
+                  <el-button size="small" :disabled="detailLoading" @click="openSpu(spu)">查看 SKU</el-button>
+                </td>
+              </tr>
+              <tr v-if="spus.length === 0"><td colspan="4">暂无可选在售商品。</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div v-if="!pendingBroken && !pending && detail" class="merchant-card">
         <h2>商品 SKU：{{ detail.name }}</h2>
         <p v-if="detailError" class="workspace-error">{{ detailError }}</p>
-        <table class="merchant-table">
-          <thead><tr><th>选择</th><th>SKU 编号</th><th>编码</th><th>规格</th><th>单价</th></tr></thead>
-          <tbody>
-            <tr v-for="sku in detailSkus" :key="sku.id">
-              <td><el-checkbox v-model="selected[sku.id]" :disabled="cartLocked" /></td>
-              <td class="mono">{{ sku.id }}</td>
-              <td>{{ sku.sku_code }}</td>
-              <td>{{ sku.specification }}</td>
-              <td>{{ sku.price }}</td>
-            </tr>
-            <tr v-if="detailSkus.length === 0"><td colspan="5">该商品暂无 SKU。</td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="merchant-table">
+            <thead><tr><th>选择</th><th>SKU 编号</th><th>编码</th><th>规格</th><th>单价</th></tr></thead>
+            <tbody>
+              <tr v-for="sku in detailSkus" :key="sku.id">
+                <td><el-checkbox v-model="selected[sku.id]" :disabled="cartLocked" :aria-label="`选择 SKU ${sku.sku_code}`" /></td>
+                <td class="mono">{{ sku.id }}</td>
+                <td>{{ sku.sku_code }}</td>
+                <td>{{ sku.specification }}</td>
+                <td>{{ sku.price }}</td>
+              </tr>
+              <tr v-if="detailSkus.length === 0"><td colspan="5">该商品暂无 SKU。</td></tr>
+            </tbody>
+          </table>
+        </div>
         <div class="actions">
           <el-button type="primary" :disabled="cartLocked || !detailMatchesShop || detailError !== ''" @click="addSelectedSkus">
             加入购物清单
@@ -849,31 +855,34 @@ function pendingStateText(state: PendingOrder['state'] | undefined): string {
           存在未确认的请求记录，购物清单已锁定，只能按原请求重试或人工核对后放弃。
         </p>
         <p v-if="formError" class="workspace-error">{{ formError }}</p>
-        <table class="merchant-table">
-          <thead>
-            <tr><th>SKU 编号</th><th>编码</th><th>规格</th><th>单价</th><th>数量（正整数 1..9223372036854775807）</th><th>操作</th></tr>
-          </thead>
-          <tbody>
-            <tr v-for="line in cart" :key="line.skuId">
-              <td class="mono">{{ line.skuId }}</td>
-              <td>{{ line.skuCode }}</td>
-              <td>{{ line.specification }}</td>
-              <td>{{ line.price }}</td>
-              <td>
-                <input
-                  v-model="line.quantity"
-                  class="qty-input"
-                  type="text"
-                  inputmode="numeric"
-                  :disabled="cartLocked"
-                  @blur="normalizeQuantityForDisplay(line)"
-                />
-              </td>
-              <td><el-button size="small" :disabled="cartLocked" @click="removeLine(line.skuId)">移除</el-button></td>
-            </tr>
-            <tr v-if="cart.length === 0"><td colspan="6">购物清单为空。</td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="merchant-table">
+            <thead>
+              <tr><th>SKU 编号</th><th>编码</th><th>规格</th><th>单价</th><th>数量（正整数 1..9223372036854775807）</th><th>操作</th></tr>
+            </thead>
+            <tbody>
+              <tr v-for="line in cart" :key="line.skuId">
+                <td class="mono">{{ line.skuId }}</td>
+                <td>{{ line.skuCode }}</td>
+                <td>{{ line.specification }}</td>
+                <td>{{ line.price }}</td>
+                <td>
+                  <input
+                    v-model="line.quantity"
+                    :aria-label="`SKU ${line.skuCode} 的数量`"
+                    class="qty-input"
+                    type="text"
+                    inputmode="numeric"
+                    :disabled="cartLocked"
+                    @blur="normalizeQuantityForDisplay(line)"
+                  />
+                </td>
+                <td><el-button size="small" :disabled="cartLocked" @click="removeLine(line.skuId)">移除</el-button></td>
+              </tr>
+              <tr v-if="cart.length === 0"><td colspan="6">购物清单为空。</td></tr>
+            </tbody>
+          </table>
+        </div>
         <p class="hint">
           共 {{ cart.length }} 个不同 SKU（上限 {{ MAX_DISTINCT_SKUS }}）；订单金额以服务端返回为准。
         </p>
@@ -900,18 +909,20 @@ function pendingStateText(state: PendingOrder['state'] | undefined): string {
         <dt>创建时间</dt><dd>{{ createdOrder.created_at }}</dd>
       </dl>
       <p class="hint">{{ createdOutcomeNotice }}</p>
-      <table class="merchant-table">
-        <thead><tr><th>商品</th><th>规格</th><th>数量</th><th>单价</th><th>小计</th></tr></thead>
-        <tbody>
-          <tr v-for="item in createdOrder.items" :key="item.id">
-            <td>{{ item.spu_name_snapshot }}（{{ item.sku_code_snapshot }}）</td>
-            <td>{{ item.specification_snapshot }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>{{ item.unit_price }}</td>
-            <td>{{ item.subtotal }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table class="merchant-table">
+          <thead><tr><th>商品</th><th>规格</th><th>数量</th><th>单价</th><th>小计</th></tr></thead>
+          <tbody>
+            <tr v-for="item in createdOrder.items" :key="item.id">
+              <td>{{ item.spu_name_snapshot }}（{{ item.sku_code_snapshot }}）</td>
+              <td>{{ item.specification_snapshot }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.unit_price }}</td>
+              <td>{{ item.subtotal }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <p v-if="stockNotice" class="hint">{{ stockNotice }}</p>
       <p v-if="stockError" class="workspace-error">{{ stockError }}</p>
       <div class="actions">

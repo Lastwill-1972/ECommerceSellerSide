@@ -9,7 +9,7 @@ import {
   Grid, InfoFilled, Key, Lock, Message, Refresh, Right, Shop, SwitchButton,
   TopRight, User, UserFilled, Tickets, List,
 } from '@element-plus/icons-vue'
-import 'element-plus/dist/index.css'
+import './styles/element-plus'
 import './styles/main.css'
 import './styles/merchant.css'
 import App from './App.vue'

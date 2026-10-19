@@ -1,0 +1,100 @@
+{
+  "orders": [
+    {
+      "id": 3,
+      "shop_id": 52,
+      "request_key": "b661344b-d5a6-42aa-9798-64f1ec55fcc6",
+      "status": "PENDING"
+    },
+    {
+      "id": 104,
+      "shop_id": 52,
+      "request_key": "6bdd983c-e1d6-411b-847c-22a01336c026",
+      "status": "PENDING"
+    },
+    {
+      "id": 105,
+      "shop_id": 52,
+      "request_key": "2cfea551-6aa6-4c9b-a299-99a3cc28b8c1",
+      "status": "PENDING"
+    },
+    {
+      "id": 106,
+      "shop_id": 52,
+      "request_key": "e568cb88-3c7b-4438-a063-2f8a30f763d5",
+      "status": "PENDING"
+    },
+    {
+      "id": 107,
+      "shop_id": 52,
+      "request_key": "7e024057-4ce0-4086-8eff-1eba43f5e9d5",
+      "status": "COMPLETED"
+    },
+    {
+      "id": 108,
+      "shop_id": 52,
+      "request_key": "ae849ac0-efa5-4cda-b3f0-21203f416aca",
+      "status": "CANCELLED"
+    },
+    {
+      "id": 109,
+      "shop_id": 52,
+      "request_key": "c5b8db2f-c4a5-46c2-9c7d-796d5a3754c7",
+      "status": "CANCELLED"
+    },
+    {
+      "id": 110,
+      "shop_id": 52,
+      "request_key": "18912be7-f8d7-4752-b93a-044a3f824207",
+      "status": "COMPLETED"
+    },
+    {
+      "id": 111,
+      "shop_id": 52,
+      "request_key": "f67fa328-8950-4bbf-9615-15678db6720a",
+      "status": "CANCELLED"
+    },
+    {
+      "id": 112,
+      "shop_id": 52,
+      "request_key": "186edfc3-2637-476c-84dd-200e904a08e4",
+      "status": "CANCELLED"
+    },
+    {
+      "id": 113,
+      "shop_id": 52,
+      "request_key": "be1ab46e-90bf-4222-aa9d-4dcf3cf65a23",
+      "status": "CANCELLED"
+    },
+    {
+      "id": 214,
+      "shop_id": 52,
+      "request_key": "ced9662fd262d22844f7733d338df37c",
+      "status": "CANCELLED"
+    }
+  ],
+  "manual_operations": [
+    {
+      "idempotency_key": "1c6f7160-7f9e-4f5c-bb70-74dbc18b1e71",
+      "count": 1
+    },
+    {
+      "idempotency_key": "5a969f2886336c6269c1ece4a94ae3ab",
+      "count": 1
+    },
+    {
+      "idempotency_key": "634d4388-4bd8-4bb8-9723-ebfff301aa5e",
+      "count": 1
+    },
+    {
+      "idempotency_key": "f4e9cc21-d4f7-4d39-863b-1d16779473aa",
+      "count": 1
+    },
+    {
+      "idempotency_key": "fa4863ee-73bc-431c-90cc-56c9c61dd490",
+      "count": 1
+    }
+  ],
+  "no_duplicate_order_item_movements": true,
+  "audit_count": 73
+}

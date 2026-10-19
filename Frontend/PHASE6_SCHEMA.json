@@ -1,0 +1,10 @@
+{
+  "head": "20261017_phase12",
+  "business_tables": 20,
+  "metadata_differences": "[]",
+  "time_zone": {
+    "global_zone": "SYSTEM",
+    "session_zone": "SYSTEM",
+    "current_offset_minutes": 480
+  }
+}

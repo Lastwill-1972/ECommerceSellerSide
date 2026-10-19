@@ -1,0 +1,7 @@
+{
+  "checks": [
+    "removed employee old JWT navigates to 403; late real order response does not restore old data",
+    "real invalid JWT 401 redirects protected navigation to expired login"
+  ],
+  "pageerrors": []
+}

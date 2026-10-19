@@ -33,6 +33,7 @@ export const router = createRouter({
           { path: '', name: 'identity-applications', component: () => import('@/modules/workspace/pages/ApplicationsPage.vue'), meta: { requiresAuth: true, allowedRoles: ['NONE'], title: '身份申请中心' } },
         ] },
         { path: 'shop', component: RoleFrame, meta: { requiresAuth: true, allowedRoles: ['SHOP_OWNER'] }, children: [
+          { path: 'audit', name: 'shop-audit', component: () => import('@/modules/audit/AuditPage.vue'), meta: { title: '审计查询' } },
           { path: '', name: 'shop-home', component: ShopReadPage, meta: { title: '店铺概览' } },
           { path: 'employees', name: 'shop-employees', component: () => import('@/modules/workspace/pages/ShopPeoplePage.vue'), meta: { title: '本店员工' } },
           { path: 'applications', name: 'shop-applications', component: () => import('@/modules/workspace/pages/ShopPeoplePage.vue'), meta: { title: '员工入职审批' } },
@@ -57,6 +58,7 @@ export const router = createRouter({
           path: 'merchant', component: () => import('@/modules/merchant/pages/MerchantFramePage.vue'),
           meta: { requiresAuth: true, merchantOnly: true },
           children: [
+            { path: 'audit', name: 'merchant-audit', component: () => import('@/modules/audit/AuditPage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '审计查询' } },
             { path: '', name: 'merchant-home', component: () => import('@/modules/merchant/pages/MerchantHomePage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '商家概览' } },
             { path: 'profile', name: 'merchant-profile', component: () => import('@/modules/merchant/pages/MerchantProfilePage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '商家资料' } },
             { path: 'shops', name: 'merchant-shops', component: () => import('@/modules/merchant/pages/MerchantShopsPage.vue'), meta: { requiresAuth: true, merchantOnly: true, title: '店铺列表' } },

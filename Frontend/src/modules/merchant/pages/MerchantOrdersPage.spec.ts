@@ -10,7 +10,7 @@ import { listOrders, listShops } from '@/modules/merchant/api'
 
 vi.mock('@/modules/merchant/api', () => ({ listOrders: vi.fn(), listShops: vi.fn() }))
 const order = { id: '9007199254740993', merchant_id: '9007199254740995', shop_id: '9007199254740997', created_by_user_id: '9007199254740999', status: 'PENDING', total_amount: '12345678901234567890.10', created_at: '2026-10-17T09:30:00', completed_at: null, cancelled_at: null, items: [] }
-const router = createRouter({ history: createMemoryHistory(), routes: [{ path: '/merchant/orders/:id', component: { template: '<div />' }, name: 'merchant-order-detail' }] })
+const router = createRouter({ history: createMemoryHistory(), routes: [{ path: '/', component: { template: '<div />' } }, { path: '/merchant/orders', component: { template: '<div />' } }, { path: '/merchant/orders/:id', component: { template: '<div />' }, name: 'merchant-order-detail' }] })
 
 describe('merchant order list', () => {
   beforeEach(() => {

@@ -38,6 +38,7 @@ async function open(component: typeof ApplicationsPage | typeof ShopPeoplePage |
   const router = createRouter({ history: createMemoryHistory(), routes: [
     { path: '/view', name, component }, { path: '/', name: 'dashboard', component: { template: '<p>dashboard</p>' } },
     { path: '/shop/warehouse', component: { template: '<p>warehouse</p>' } },
+    { path: '/shop/inventory', component: { template: '<p>inventory</p>' } },
   ] })
   await router.push('/view')
   const wrapper = mount(component, { global: { plugins: [router], stubs: { ElButton } } })

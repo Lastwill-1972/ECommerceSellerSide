@@ -1,0 +1,15 @@
+{
+  "yaml_parse": true,
+  "service_dependencies_and_build_copy_paths": true,
+  "host_ports_only_loopback_nginx": true,
+  "app_migration_accounts_separated": true,
+  "health_shell_escaping": true,
+  "shell_syntax_on_ubuntu_wsl": "passed (sh -n)",
+  "docker_compose_config": "not executed: Docker unavailable",
+  "docker_build_up": "not executed",
+  "nginx_t": "not executed",
+  "mysql_8_4": "not executed",
+  "linux_container_runtime": "not executed",
+  "bootstrap_privilege_modes_and_quoting": "offline fake-mysql CLI generation passed in Ubuntu WSL, not a live MySQL 8.4 test",
+  "schema_grants": "exact schema, partial_revokes-aware; migration account also explicitly initialized"
+}

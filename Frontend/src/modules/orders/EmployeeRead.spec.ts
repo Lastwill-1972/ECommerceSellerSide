@@ -34,14 +34,22 @@ vi.mock('@/modules/merchant/catalogApi', () => ({
 }))
 vi.mock('element-plus', async () => (await import('@/modules/merchant/test-support/elementPlus')).elementPlusMock)
 
+const placeholder = { template: '<div />' }
 let wrapper: VueWrapper | undefined
 
+// 登记模板中实际渲染的 RouterLink 目标，避免 memory router 对未登记路径报警。
+const readRoutes = [
+  { path: '/', name: 'dashboard', component: placeholder },
+  { path: '/employee', name: 'employee-home', component: EmployeeHomePage },
+  { path: '/employee/inventory', name: 'employee-inventory', component: ShopReadPage },
+  { path: '/employee/catalog', name: 'employee-catalog', component: placeholder },
+  { path: '/employee/orders', name: 'employee-orders', component: placeholder },
+  { path: '/employee/orders/create', name: 'employee-order-create', component: placeholder },
+  { path: '/shop/warehouse', name: 'shop-warehouse', component: ShopReadPage },
+]
+
 async function mountAt(component: Component, path: string) {
-  const router = createRouter({ history: createMemoryHistory(), routes: [
-      { path: '/employee', name: 'employee-home', component: EmployeeHomePage },
-      { path: '/employee/inventory', name: 'employee-inventory', component: ShopReadPage },
-      { path: '/', name: 'dashboard', component: { template: '<div />' } },
-    ] })
+  const router = createRouter({ history: createMemoryHistory(), routes: readRoutes })
   await router.push(path)
   await router.isReady()
   wrapper = mount(component, {
